@@ -2,7 +2,7 @@ var units = "Widgets";
 
 // set the dimensions and margins of the graph
 var margin = {top: 10, right: 10, bottom: 10, left: 10},
-    width = 2000 - margin.left - margin.right,
+    width =  document.documentElement.clientWidth - margin.left - margin.right,
     height = 300 - margin.top - margin.bottom;
 
 // format variables
@@ -83,6 +83,7 @@ svg.selectAll(".link")
     .append("title")
       .text(function(d) { 
 		  return d.name + "\n" + format(d.value); });
+    
 
 // add in the title for the nodes
   node.append("text")
