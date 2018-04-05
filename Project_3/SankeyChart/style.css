@@ -1,0 +1,24 @@
+body{
+      font-family: 'Roboto', sans-serif;
+      color: #FF6138;
+}
+
+
+.node rect {
+  fill: purple;
+  stroke: steelblue;
+  stroke-width: 3px;
+    
+}
+
+.node text {
+  font-family: 'Roboto', sans-serif;
+  font-size:20px;
+  fill:green;
+}
+
+.link {
+  fill: none;
+  stroke: pink;
+  stroke-width: 20px;
+}

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+<head>
+  <meta charset="UTF-8">
+  <title>Census Visualization - Project 3</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> 
+  <link href="https://fonts.googleapis.com/css?family=Fira+Sans:300,400,500,700" rel="stylesheet">
+  <link href="style.css" rel="stylesheet" /> 
+</head>
+    
+<!--  <link rel="stylesheet" href="bootstrap.css">-->
+
+<body>
+<div class="container">
+    
+      <!-- heading -->
+      <div class="row">
+        <h1 class="col-md-12">Annual income per household in the United States</h1>
+        <h2 class="col-md-12">by Educational Attainment of Householder</h2>
+        <h2 class="col-md-12">(in US dollar, 1996 ~ 2016)</h2>
+      </div>
+
+      <!-- plot 1 -->
+      <div class="row">
+        <div class="col-md-12 plot">
+          <svg id="plot-1" width="190" height="850"></svg>
+          <h3 class="col-md-12">——All Households——</h3>
+        </div>
+      </div>
+
+
+      <!-- plots 2-5 -->
+      <div class="row">
+        <div class="col-md-2 plot">
+<!--          <label for="plot-2" class="label">aveIncome.csv</label>-->
+          <svg id="plot-2" width="190" height="500"></svg>
+          <h4>——Less than 9th grade——</h4>
+        </div>
+        <div class="col-md-2 plot">
+          <svg id="plot-3" width="190" height="500"></svg>
+          <h5>——9th to 12th grade——</h5>
+          <h6>no diploma</h6>
+        </div>
+        <div class="col-md-2 plot"> 
+          <svg id="plot-4" width="190" height="500"></svg> 
+          <h5>——High School grad——</h5>
+        </div> 
+        <div class="col-md-2 plot"> 
+          <svg id="plot-5" width="190" height="500"></svg> 
+          <h5>———Some college———</h5>
+          <h6>no degree</h6>
+        </div> 
+        <div class="col-md-2 plot"> 
+          <svg id="plot-6" width="190" height="500"></svg> 
+          <h5>——Associate Degree——</h5>
+        </div> 
+        <div class="col-md-2 plot"> 
+          <svg id="plot-7" width="190" height="500"></svg> 
+          <h5>——Bachelor's Degree——</h5>
+          <h6>or more</h6>
+        </div> 
+          
+      </div>
+    </div>
+  </div>
+
+  <script src="https://d3js.org/d3.v4.min.js"></script>
+  <script src="https://d3js.org/topojson.v2.min.js"></script>
+  <script src="script_1.js"></script>
+</body>
+</html>

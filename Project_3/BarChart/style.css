@@ -1,0 +1,204 @@
+h1{
+  font-weight: 400;
+  text-transform: capitalize;
+  letter-spacing: 0.03em;
+  font-size: 15pt;
+  margin-top: 40px;
+  text-align: center;
+}
+
+h2{
+  font-weight: 300;
+  letter-spacing: 0.03em;
+  font-size: 12pt;
+  text-align: center;
+}
+
+h3{
+  font-weight: 300;
+  letter-spacing: 0.03em;
+  font-size: 10pt;
+  text-align: center;
+    margin-top: -30px;
+        margin-bottom: 30px;
+}
+
+h4{
+  font-weight: 300;
+  letter-spacing: 0.03em;
+  font-size: 8pt;
+  text-align: center;
+  margin-top: -30px;
+  margin-bottom: 30px;
+  margin-left: 22px;
+}
+
+h5{
+  font-weight: 300;
+  letter-spacing: 0.03em;
+  font-size: 8pt;
+  text-align: center;
+  margin-top: -30px;
+/*  margin-bottom: 30px;*/
+  margin-left: 30px;
+}
+
+h6{
+  font-weight: 300;
+  letter-spacing: 0.03em;
+  font-size: 8pt;
+  text-align: center;
+  margin-top: -5px;
+/*  margin-bottom: 30px;*/
+  margin-left: 30px;
+}
+#plot-1 {
+/*  border: 1px solid;*/
+  /*float: left;*/
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom:40px;
+    
+}
+
+#plot-2 {
+/*  border: 1px solid;*/
+  /*float: left;*/
+  margin-left: 0;
+  margin-right: 0;
+  margin-bottom:40px;
+}
+
+#plot-3 {
+/*  border: 1px solid;*/
+  /*float: left;*/
+  margin-left: 0;
+  margin-right: 0;
+  margin-bottom:40px;
+}
+
+#plot-4 {
+/*  border: 1px solid;*/
+  /*float: left;*/
+  margin-left: 0;
+  margin-right: auto;
+  margin-bottom:40px;
+}
+
+#plot-5 {
+/*  border: 1px solid;*/
+  /*float: left;*/
+  margin-left: 0;
+  margin-right: auto;
+  margin-bottom:40px;
+}
+
+#plot-6 {
+/*  border: 1px solid;*/
+  /*float: left;*/
+  margin-left: 0;
+  margin-right: auto;
+  margin-bottom:40px;
+}
+
+#plot-7 {
+/*  border: 1px solid;*/
+  /*float: left;*/
+  margin-left: 0;
+  margin-right: auto;
+  margin-bottom:40px;
+}
+
+svg {
+/*  background-color: #f9f9f9;*/
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  /*width: 960px;*/
+  /*height: 500px;*/
+}
+
+.bar {
+  fill: #f2f2f2;
+}
+
+.bar:hover {
+  fill: #FF6138;
+}
+
+
+.bar-lightgrey {
+  fill: #f2f2f2;
+}
+
+
+.bar-less9 {
+  fill: #FFFF9D;
+/*  opacity: 0.7;  */
+}
+
+.bar-less9:hover {
+  fill: #FF5B34;
+}
+
+
+.bar-9to12 {
+  fill: #E5E58D;
+/*  opacity: 0.7;  */
+}
+
+.bar-9to12:hover {
+  fill: #E5522F;
+}
+
+.bar-highschool {
+  fill: #BFBF76;
+/*  opacity: 0.7;  */
+}
+
+.bar-highschool:hover {
+  fill: #BF4427;
+}
+
+
+.bar-somecollege {
+  fill: #8F8F58;
+/*  opacity: 0.7;  */
+}
+
+.bar-somecollege:hover {
+  fill: #7F2D1A;
+}
+
+.bar-associatedegree {
+  fill: #66663F;
+/*  opacity: 0.7;  */
+}
+
+.bar-associatedegree:hover {
+  fill: #571F12;
+}
+
+
+.bar-advancedegree {
+  fill: #404027;
+/*  opacity: 0.7;  */
+}
+
+.bar-advancedegree:hover {
+  fill: #40170D;
+}
+
+.axis--x path {
+  display: none;
+}
+
+.plot {
+  /*border: 1px #c32 dashed;*/
+  min-height: 20rem;
+}
+
+.plot > svg {
+  margin-left: auto;
+  margin-right: auto;
+}
