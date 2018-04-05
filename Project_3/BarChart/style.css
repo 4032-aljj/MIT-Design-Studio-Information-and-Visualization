@@ -58,7 +58,7 @@ h6{
   margin-left: auto;
   margin-right: auto;
   margin-bottom:40px;
-    
+
 }
 
 #plot-2 {
@@ -133,7 +133,7 @@ svg {
 
 
 .bar-less9 {
-  fill: #FFFF9D;
+  fill: #E9FCB4;
 /*  opacity: 0.7;  */
 }
 
@@ -143,7 +143,7 @@ svg {
 
 
 .bar-9to12 {
-  fill: #E5E58D;
+  fill: #DFFF9D;
 /*  opacity: 0.7;  */
 }
 
@@ -152,7 +152,7 @@ svg {
 }
 
 .bar-highschool {
-  fill: #BFBF76;
+  fill: #A3DB95;
 /*  opacity: 0.7;  */
 }
 
@@ -162,7 +162,7 @@ svg {
 
 
 .bar-somecollege {
-  fill: #8F8F58;
+  fill: #79BD8F;
 /*  opacity: 0.7;  */
 }
 
@@ -171,7 +171,7 @@ svg {
 }
 
 .bar-associatedegree {
-  fill: #66663F;
+  fill: #007864;
 /*  opacity: 0.7;  */
 }
 
@@ -181,7 +181,7 @@ svg {
 
 
 .bar-advancedegree {
-  fill: #404027;
+  fill: #005748;
 /*  opacity: 0.7;  */
 }
 

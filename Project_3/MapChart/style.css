@@ -1,32 +1,38 @@
-body {
+/* body {
   padding: 50px;
   font-family: "HelveticaNeueLT Std","Helvetica LT Std Light", "Helvetica", "Arial", "sans-serif";
   background-color: rgb(31,31,43);
   color: #FFFFFF;
+} */
+
+#map-container {
+  background-color: rgb(31,31,43);
+  color: #FFFFFF;
+  padding: 50px;
 }
 
-h2 {
+#map-container h2 {
   margin-bottom: 50px;
   margin-top: 50px;
 }
 
-#plot-income {
+#map-container #plot-income {
   height: 680px;
 }
 
-.plot-ed {
+#map-container .plot-ed {
   height: 380px;
 }
 
-.legend-axis .domain {
+#map-container .legend-axis .domain {
   stroke: #FFFFFF;
 }
 
-.legend-axis .tick line {
+#map-container .legend-axis .tick line {
   stroke: #FFFFFF;
 }
 
-.legend-axis .tick text {
+#map-container .legend-axis .tick text {
   stroke: none;
   fill: #FFFFFF;
 }
