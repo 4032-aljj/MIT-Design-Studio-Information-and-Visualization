@@ -19,9 +19,9 @@ var populationPerState = d3.map();
 
 // queue data files, parse them and use them
 var queue = d3.queue()
-    .defer(d3.csv, "../data/data.csv", parseData)
-    .defer(d3.json, "../data/us_map.json") //downloaded from https://d3js.org/us-10m.v1.json
-    .defer(d3.csv, "../data/population.csv", parsePopulation)
+    .defer(d3.csv, "./data/data.csv", parseData)
+    .defer(d3.json, "./data/us_map.json") //downloaded from https://d3js.org/us-10m.v1.json
+    .defer(d3.csv, "./data/population.csv", parsePopulation)
     .await(dataloaded);
 
 function dataloaded (err,data,map){

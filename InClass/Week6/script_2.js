@@ -16,8 +16,8 @@ var plot2 = d3.select('#plot2')
 
 // queue data files, parse them and use them
 var queue = d3.queue()
-    .defer(d3.json, "../data/us_map.json") //downloaded from https://d3js.org/us-10m.v1.json
-    .defer(d3.csv, "../data/data.csv", parseData)
+    .defer(d3.json, "./data/us_map.json") //downloaded from https://d3js.org/us-10m.v1.json
+    .defer(d3.csv, "./data/data.csv", parseData)
     .await(dataloaded);
 
 function dataloaded (err,map){
