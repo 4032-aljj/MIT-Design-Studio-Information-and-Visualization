@@ -2,15 +2,21 @@
 <meta charset="utf-8">
 <title>Income and Education</title>
 <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-<link href="MapChart/style.css" rel="stylesheet">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 <link href="SankeyChart/style.css" rel="stylesheet">
 <link href="BarChart/style.css" rel="stylesheet">
-
-
+<link href="PieChart/style.css" rel="stylesheet">
+<link href="style.css" rel="stylesheet">
+<link href="MapChart/style.css" rel="stylesheet">
 
 <body>
+
+  <div id="sankey-container">
+    <div id="sankey1"></div>
+  </div>
+
     <!--Maps-->
-<div class="container">
+    <div id="map-container">
     <div class="row">
       <h1 class="col-md-12">Median Household Income by State</h1>
       <div id='plot-income' class="col-md-12"></div>
@@ -45,9 +51,10 @@
     </div>
     <!-- /row -->
   </div>
+
 <!--Bar Charts-->
-<div class="container">
-    
+<div id="bar-container" class="container">
+
       <!-- heading -->
       <div class="row">
         <h1 class="col-md-12">Annual income per household in the United States</h1>
@@ -76,28 +83,40 @@
           <h5>——9th to 12th grade——</h5>
           <h6>no diploma</h6>
         </div>
-        <div class="col-md-2 plot"> 
-          <svg id="plot-4" width="190" height="500"></svg> 
+        <div class="col-md-2 plot">
+          <svg id="plot-4" width="190" height="500"></svg>
           <h5>——High School grad——</h5>
-        </div> 
-        <div class="col-md-2 plot"> 
-          <svg id="plot-5" width="190" height="500"></svg> 
+        </div>
+        <div class="col-md-2 plot">
+          <svg id="plot-5" width="190" height="500"></svg>
           <h5>———Some college———</h5>
           <h6>no degree</h6>
-        </div> 
-        <div class="col-md-2 plot"> 
-          <svg id="plot-6" width="190" height="500"></svg> 
+        </div>
+        <div class="col-md-2 plot">
+          <svg id="plot-6" width="190" height="500"></svg>
           <h5>——Associate Degree——</h5>
-        </div> 
-        <div class="col-md-2 plot"> 
-          <svg id="plot-7" width="190" height="500"></svg> 
+        </div>
+        <div class="col-md-2 plot">
+          <svg id="plot-7" width="190" height="500"></svg>
           <h5>——Bachelor's Degree——</h5>
           <h6>or more</h6>
-        </div> 
-          
+        </div>
+
       </div>
     </div>
-<div id ="sankey1"></div>
+
+    <div id="pie-container">
+      <div class="row">
+        <div class="col-md-6">
+          <h2>Education Attainment in The United States Over Time - 2017</h2>
+          <div id='plot1' style="height:500px"></div>
+        </div>
+        <div class="col-md-6">
+          <h2>Education Attainment in The United States Over Time - 1947</h2>
+          <div id='plot2' style="height:500px"></div>
+        </div>
+      </div>
+    </div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://d3js.org/topojson.v2.min.js"></script>
@@ -107,6 +126,7 @@
 <script src ="MapChart/education.js"></script>
 <script src ="MapChart/income.js"></script>
 <script src ="BarChart/script_1.js"></script>
+<script src="PieChart/pie2.js"></script>
 
 
 

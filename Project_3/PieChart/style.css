@@ -1,0 +1,13 @@
+#pie-container {
+  background-color: rgb(31,31,43);
+}
+
+.arc text {
+    font: 10px 'Roboto';
+    fill: #FFFFFF;
+    text-anchor: middle;
+}
+
+.arc path {
+    stroke: #fff;
+}

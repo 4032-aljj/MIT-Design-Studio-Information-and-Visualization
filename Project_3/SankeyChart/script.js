@@ -15,7 +15,7 @@ var svg = d3.select("#sankey1").append("svg")
     .attr("width", width + margin.left + margin.right)
     .attr("height", height + margin.top + margin.bottom)
   .append("g")
-    .attr("transform", 
+    .attr("transform",
           "translate(" + margin.left + "," + margin.top + ")");
 
 // Set the sankey diagram properties
@@ -27,7 +27,7 @@ var sankey = d3.sankey()
 var path = sankey.link();
 
 // load the data
-d3.json("data.json", function(error, graph) {
+d3.json("/Project_3/data/Additional/sankey_data.json", function(error, graph) {
 
   sankey
       .nodes(graph.nodes)
@@ -47,7 +47,7 @@ d3.json("data.json", function(error, graph) {
 // add the link titles
   link.append("title")
         .text(function(d) {
-    		return d.source.name + " → " + 
+    		return d.source.name + " → " +
                 d.target.name + "\n" + format(d.value); });
 svg.selectAll(".link")
   .style('stroke', function(d){
@@ -58,7 +58,7 @@ svg.selectAll(".link")
       .data(graph.nodes)
     .enter().append("g")
       .attr("class", "node")
-      .attr("transform", function(d) { 
+      .attr("transform", function(d) {
 		  return "translate(" + d.x + "," + d.y + ")"; })
       .call(d3.drag()
         .subject(function(d) {
@@ -69,19 +69,19 @@ svg.selectAll(".link")
         })
         .on("drag", dragmove));
 
-    
-    
+
+
 // add the rectangles for the nodes
   node.append("rect")
       .attr("height", function(d) { return d.dy; })
       .attr("width", sankey.nodeWidth())
-      .style("fill", function(d) { 
+      .style("fill", function(d) {
           console.log(d);
 		  return d.color = d.color })
-      .style("stroke", function(d) { 
+      .style("stroke", function(d) {
 		  return "white"; })
     .append("title")
-      .text(function(d) { 
+      .text(function(d) {
 		  return d.name + "\n" + format(d.value); });
 
 // add in the title for the nodes
@@ -99,9 +99,9 @@ svg.selectAll(".link")
 // the function for moving the nodes
   function dragmove(d) {
     d3.select(this)
-      .attr("transform", 
-            "translate(" 
-               + d.x + "," 
+      .attr("transform",
+            "translate("
+               + d.x + ","
                + (d.y = Math.max(
                   0, Math.min(height - d.dy, d3.event.y))
                  ) + ")");
@@ -114,7 +114,7 @@ svg.selectAll(".link")
     .attr("width", width + margin.left + margin.right)
     .attr("height", height + margin.top + margin.bottom)
   .append("g")
-    .attr("transform", 
+    .attr("transform",
           "translate(" + margin.left + "," + margin.top + ")");
 
 // Set the sankey diagram properties
@@ -146,7 +146,7 @@ d3.json("femaleData.json", function(error, graph) {
 // add the link titles
   link2.append("title")
         .text(function(d) {
-    		return d.source.name + " → " + 
+    		return d.source.name + " → " +
                 d.target.name + "\n" + format(d.value); });
 svg2.selectAll(".link")
   .style('stroke', function(d){
@@ -157,7 +157,7 @@ svg2.selectAll(".link")
       .data(graph.nodes)
     .enter().append("g")
       .attr("class", "node")
-      .attr("transform", function(d) { 
+      .attr("transform", function(d) {
 		  return "translate(" + d.x + "," + d.y + ")"; })
       .call(d3.drag()
         .subject(function(d) {
@@ -168,19 +168,19 @@ svg2.selectAll(".link")
         })
         .on("drag", dragmove));
 
-    
-    
+
+
 // add the rectangles for the nodes
   node2.append("rect")
       .attr("height", function(d) { return d.dy; })
       .attr("width", sankey2.nodeWidth())
-      .style("fill", function(d) { 
+      .style("fill", function(d) {
           console.log(d);
 		  return d.color = d.color })
-      .style("stroke", function(d) { 
+      .style("stroke", function(d) {
 		  return "white"; })
     .append("title")
-      .text(function(d) { 
+      .text(function(d) {
 		  return d.name + "\n" + format(d.value); });
 
 // add in the title for the nodes
@@ -198,9 +198,9 @@ svg2.selectAll(".link")
  //the function for moving the nodes
   function dragmove(d) {
     d3.select(this)
-      .attr("transform", 
-            "translate(" 
-               + d.x + "," 
+      .attr("transform",
+            "translate("
+               + d.x + ","
                + (d.y = Math.max(
                   0, Math.min(height - d.dy, d3.event.y))
                  ) + ")");
@@ -210,4 +210,3 @@ svg2.selectAll(".link")
 });
 
 */
-

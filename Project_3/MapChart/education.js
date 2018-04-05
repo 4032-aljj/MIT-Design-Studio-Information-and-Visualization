@@ -19,8 +19,8 @@ let edMapPath = d3.geoPath()
 
 // Queue data files, parse them and use them
 let edQueue = d3.queue()
-  .defer(d3.csv, '../data/Additional/education_by_state_16.csv', parseEdData)
-  .defer(d3.json, '../data/Additional/us_map.json')
+  .defer(d3.csv, '/Project_3/data/Additional/education_by_state_16.csv', parseEdData)
+  .defer(d3.json, '/Project_3/data/Additional/us_map.json')
   .await(edDataLoaded)
 
 function edDataLoaded(err, data, map){
