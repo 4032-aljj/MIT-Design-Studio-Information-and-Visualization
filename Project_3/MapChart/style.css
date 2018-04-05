@@ -1,0 +1,19 @@
+body {
+  padding: 50px;
+  font-family: "HelveticaNeueLT Std","Helvetica LT Std Light", "Helvetica", "Arial", "sans-serif";
+  background-color: rgb(31,31,43);
+  color: #FFFFFF;
+}
+
+h2 {
+  margin-bottom: 50px;
+  margin-top: 50px;
+}
+
+#plot-income {
+  height: 680px;
+}
+
+.plot-ed {
+  height: 340px;
+}
