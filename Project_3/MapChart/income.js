@@ -17,8 +17,8 @@ let incomeMapPath = d3.geoPath()
 
 // Queue data files, parse them and use them
 let incomeQueue = d3.queue()
-  .defer(d3.csv, '/Project_3/data/Additional/income_by_state_16.csv', parseIncomeData)
-  .defer(d3.json, '/Project_3/data/Additional/us_map.json')
+  .defer(d3.csv, '../data/Additional/income_by_state_16.csv', parseIncomeData)
+  .defer(d3.json, '../data/Additional/us_map.json')
   .await(incomeDataLoaded)
 
 function incomeDataLoaded(err, data, map){

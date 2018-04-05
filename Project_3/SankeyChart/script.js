@@ -2,7 +2,7 @@ var units = "Widgets";
 
 // set the dimensions and margins of the graph
 var margin = {top: 10, right: 10, bottom: 10, left: 10},
-    width =  d3.select("#sankey1").node().clientWidth - margin.left - margin.right,
+    width =  document.documentElement.clientWidth - margin.left - margin.right,
     height = 300 - margin.top - margin.bottom;
 
 // format variables
@@ -27,7 +27,7 @@ var sankey = d3.sankey()
 var path = sankey.link();
 
 // load the data
-d3.json("/Project_3/data/Additional/sankey_data.json", function(error, graph) {
+d3.json("../data/Additional/sankey_data.json", function(error, graph) {
 
   sankey
       .nodes(graph.nodes)
@@ -83,7 +83,7 @@ svg.selectAll(".link")
     .append("title")
       .text(function(d) {
 		  return d.name + "\n" + format(d.value); });
-    
+
 
 // add in the title for the nodes
   node.append("text")

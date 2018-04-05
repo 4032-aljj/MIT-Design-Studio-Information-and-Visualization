@@ -33,13 +33,13 @@ var pieLabel = d3.arc()
               .outerRadius(radius + 100)
               .innerRadius(radius - 80);
 
-d3.csv("/Project_3/data/Additional/pie_2017.csv", function(error, data) {
+d3.csv("../data/Additional/pie_2017.csv", function(error, data) {
     if (error) {
         throw error;
     }
     createChart(data, g);
  });
-d3.csv("/Project_3/data/Additional/pie_1947.csv", function(error, data) {
+d3.csv("../data/Additional/pie_1947.csv", function(error, data) {
     if (error) {
         throw error;
     }
