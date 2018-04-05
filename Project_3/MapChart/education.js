@@ -3,6 +3,8 @@ let edMargin = {t: 5, r: 25, b: 20, l: 25}
 let edWidth = d3.select('.plot-ed').node().clientWidth - edMargin.r - edMargin.l
 let edHeight = d3.select('.plot-ed').node().clientHeight - edMargin.t - edMargin.b
 let edMapScale = Math.min(0.5, edWidth/960)
+let edLegendW = Math.min(edWidth, 300)
+let edLegendH = 20
 
 // Append svgs to divs
 let plotBeforeHS = appendEdPlot('#plot-before-hs')
@@ -81,6 +83,14 @@ function edDataLoaded(err, data, map){
   appendEdMap(map, plotCollegeSome, colorCollegeSome, collegeSomeByID)
   appendEdMap(map, plotBachelor, colorBachelor, bachelorByID)
   appendEdMap(map, plotAdvanced, colorAdvanced, advancedByID)
+
+  // Append legends to plots
+  appendEdLegend(plotBeforeHS, extentBeforeHS, '#FF6138')
+  appendEdLegend(plotHSSome, extentHSSome, '#FFFF9D')
+  appendEdLegend(plotHSDiploma, extentHSDiploma, '#BEEB9F')
+  appendEdLegend(plotCollegeSome, extentCollegeSome, '#79BD8F')
+  appendEdLegend(plotBachelor, extentBachelor, '#00A388')
+  appendEdLegend(plotAdvanced, extentAdvanced, '#00A388')
 }
 
 function parseEdData(d){
@@ -117,4 +127,46 @@ function appendEdMap(map, plot, color, values){
     })
     .style('stroke', '#AAAAAA')
     .attr('transform', `scale(${edMapScale})`)
+}
+
+function appendEdLegend(plot, extent, color){
+  let legend = plot.append('defs')
+    .append('svg:linearGradient')
+    .attr('id', `gradient-${color}`)
+    .attr('x1', '0%')
+    .attr('y1', '100%')
+    .attr('x2', '100%')
+    .attr('y2', '100%')
+    .attr('spreadMethod', 'pad')
+
+  legend.append('stop')
+    .attr('offset', '0%')
+    .attr('stop-color', '#FFFFFF')
+    .attr('stop-opacity', 1)
+
+  legend.append('stop')
+    .attr('offset', '100%')
+    .attr('stop-color', color)
+    .attr('stop-opacity', 1)
+
+  plot.append('rect')
+    .attr('width', edLegendW)
+    .attr('height', edLegendH)
+    .style('fill', `url(#gradient-${color})`)
+    .attr('transform', `translate(${edWidth-edLegendW-10},${edHeight-edLegendH-10})`)
+
+  let legendScale = d3.scaleLinear()
+    .domain(extent)
+    .range([0, edLegendW])
+
+  let legendAxis = d3.axisBottom()
+    .scale(legendScale)
+    .ticks(5)
+    .tickSizeOuter(0)
+    .tickFormat(function(d) { return `${d}%` })
+
+  plot.append('g')
+    .attr('class', 'legend-axis')
+    .attr('transform', `translate(${edWidth-edLegendW-10},${edHeight-10})`)
+    .call(legendAxis)
 }

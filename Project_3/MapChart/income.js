@@ -3,6 +3,8 @@ let incomeMargin = {t: 5, r: 25, b: 20, l: 25}
 let incomeWidth = d3.select('#plot-income').node().clientWidth - incomeMargin.r - incomeMargin.l
 let incomeHeight = d3.select('#plot-income').node().clientHeight - incomeMargin.t - incomeMargin.b
 let incomeMapScale = Math.min(1, incomeWidth/960)
+let incomeLegendW = Math.min(incomeWidth, 600)
+let incomeLegendH = 20
 
 // Append svgs to divs
 let plotIncome = d3.select('#plot-income')
@@ -46,6 +48,47 @@ function incomeDataLoaded(err, data, map){
     })
     .style('stroke', '#AAAAAA')
     .attr('transform', `scale(${incomeMapScale})`)
+
+  // Append legend to plot
+  let legend = plotIncome.append('defs')
+    .append('svg:linearGradient')
+    .attr('id', 'gradient-income')
+    .attr('x1', '0%')
+    .attr('y1', '100%')
+    .attr('x2', '100%')
+    .attr('y2', '100%')
+    .attr('spreadMethod', 'pad')
+
+  legend.append('stop')
+    .attr('offset', '0%')
+    .attr('stop-color', '#FFFFFF')
+    .attr('stop-opacity', 1)
+
+  legend.append('stop')
+    .attr('offset', '100%')
+    .attr('stop-color', '#00A388')
+    .attr('stop-opacity', 1)
+
+  plotIncome.append('rect')
+    .attr('width', incomeLegendW)
+    .attr('height', incomeLegendH)
+    .style('fill', 'url(#gradient-income)')
+    .attr('transform', `translate(${incomeWidth-incomeLegendW-10},${incomeHeight-incomeLegendH-10})`)
+
+  let legendScale = d3.scaleLinear()
+    .domain(extentIncome)
+    .range([0, incomeLegendW])
+
+  let legendAxis = d3.axisBottom()
+    .scale(legendScale)
+    .ticks(5)
+    .tickSizeOuter(0)
+    .tickFormat(function(d) { return `$${d}` })
+
+  plotIncome.append('g')
+    .attr('class', 'legend-axis')
+    .attr('transform', `translate(${incomeWidth-incomeLegendW-10},${incomeHeight-10})`)
+    .call(legendAxis)
 }
 
 function parseIncomeData(d){

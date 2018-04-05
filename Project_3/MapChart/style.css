@@ -15,5 +15,18 @@ h2 {
 }
 
 .plot-ed {
-  height: 340px;
+  height: 380px;
+}
+
+.legend-axis .domain {
+  stroke: #FFFFFF;
+}
+
+.legend-axis .tick line {
+  stroke: #FFFFFF;
+}
+
+.legend-axis .tick text {
+  stroke: none;
+  fill: #FFFFFF;
 }
