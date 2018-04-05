@@ -5,7 +5,7 @@ function drawPlotOne () {
     top: 20,
     right: 25,
     bottom: 30,
-    left: 25
+    left: 29
   }
 
   const width = +svg.attr('width') - margin.left - margin.right
