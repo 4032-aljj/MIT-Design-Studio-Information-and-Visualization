@@ -11,11 +11,13 @@
   <div id="map-container">
     <div class="container">
       <div class="row">
-        <h1 class="col-md-12">Median Household Income by State</h1>
-        <div id='plot-income' class="col-md-12"></div>
-      </div>
-      <!-- /row -->
-      <div class="row">
+        <div class="col-md-6">
+          <h2>Median Household Income by State</h2>
+          <div id='plot-income' class="plot"></div>
+          <div id='legend-income' class="legend"></div>
+          <div id="slider-income" class="slider"></div>
+        </div>
+        <!-- /.col-md-6 -->
         <div class="col-md-6">
           <h2>Educational Attainment by State</h2>
           <div id='plot-education' class="plot"></div>
@@ -33,16 +35,19 @@
             </svg>
           </div>
         </div>
+        <!-- /.col-md-6 -->
       </div>
-      <!-- /row -->
+      <!-- /.row -->
     </div>
+    <!-- /.container -->
   </div>
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://d3js.org/d3.v4.min.js"></script>
   <script src="https://d3js.org/topojson.v2.min.js"></script>
   <script src="MapChart/nouislider.min.js"></script>
-  <script src="MapChart/income.js"></script>
+  <script src="MapChart/wNumb.js"></script>
+  <script src="MapChart/income_interactive.js"></script>
   <script src="MapChart/education_interactive.js"></script>
 </body>
 </html>

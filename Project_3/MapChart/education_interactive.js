@@ -37,7 +37,7 @@ let edPlot = d3.select('#plot-education')
 
 let edLegendPlot = d3.select('#legend-education')
   .append('svg')
-  .attr('width', edLegendW + 20)
+  .attr('width', edLegendW + 25)
   .attr('height', edLegendH + 20)
 
 // Map variables
@@ -71,7 +71,7 @@ noUiSlider.create(edSlider, {
 
 // Add event listener to the slider
 edSlider.noUiSlider.on('update', function(values, handle) {
-  if (edMap) { colorMap(edMap, parseInt(values[0]), parseInt(values[1])) }
+  if (edMap) { colorEdMap(parseInt(values[0]), parseInt(values[1])) }
 })
 
 function edDataLoaded(err, data, map){
@@ -101,10 +101,10 @@ function edDataLoaded(err, data, map){
 
   // Initialize the coloring and legend
   appendEdLegend()
-  colorMap(edMap, edInitIndexLow, edInitIndexHigh)
+  colorEdMap(edInitIndexLow, edInitIndexHigh)
 }
 
-function colorMap(map, indexLow, indexHigh) {
+function colorEdMap(indexLow, indexHigh) {
   // Define the range of total values
   let domainLow = 0
   let domainHigh = 0
@@ -130,9 +130,13 @@ function colorMap(map, indexLow, indexHigh) {
 
   // Update the slider color
   $('#slider-education .noUi-connect').css('background-color', edColors[indexHigh-1])
+  $('#slider-income .noUi-connect').css('background-color', edColors[indexHigh-1])
 
   // Update the legend
   updateEdLegend(domainLow, domainHigh, color(domainLow), color(domainHigh))
+
+  // Update the income map color
+  colorIncomeMap()
 }
 
 function updateEdLegend(domainLow, domainHigh, colorLow, colorHigh) {
@@ -155,7 +159,7 @@ function updateEdLegend(domainLow, domainHigh, colorLow, colorHigh) {
   edLegendPlot.selectAll("g.legend-axis").remove()
   edLegendPlot.append('g')
     .attr('class', 'legend-axis')
-    .attr('transform', `translate(0,${edLegendH})`)
+    .attr('transform', `translate(10, ${edLegendH})`)
     .call(legendAxis)
 }
 
@@ -185,7 +189,7 @@ function appendEdLegend() {
     .attr('width', edLegendW)
     .attr('height', edLegendH)
     .style('fill', 'url(#gradient-ed)')
-    // .attr('transform', `translate(${edWidth-edLegendW-10},${edHeight-edLegendH-10})`)
+    .attr('transform', `translate(10, 0)`)
 }
 
 function parseEdData(d){

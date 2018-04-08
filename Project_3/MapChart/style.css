@@ -4,10 +4,6 @@
   padding: 50px;
 }
 
-#map-container #plot-income {
-  height: 680px;
-}
-
 #map-container .plot {
   width: 500px;
   height: 360px;
@@ -18,6 +14,7 @@
   margin-bottom: 50px;
   margin-top: 50px;
   text-align: center;
+  font-size: 150%;
 }
 
 #map-container .legend-axis .domain {
@@ -44,6 +41,7 @@
 }
 
 #map-container .slider {
+  margin: auto;
   margin-top: 40px;
   width: 420px;
 }
@@ -56,6 +54,6 @@
 }
 
 #map-container .slider-labels > text {
-  fill: #FFF;
+  fill: #999;
   text-anchor: end;
 }
