@@ -67,7 +67,7 @@ var plot2 = d3.select('#plot2') // if we select a html id #name, if we select a 
 
 
 
-d3.csv("../data/data.csv", parseData, drawData);
+d3.csv("./data/data.csv", parseData, drawData);
 
 function parseData(d){
     return {
