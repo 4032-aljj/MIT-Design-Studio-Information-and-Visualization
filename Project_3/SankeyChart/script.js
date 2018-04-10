@@ -193,7 +193,7 @@ var sankey2 = d3.sankey()
 var path2 = sankey2.link();
 
 // load the data
-d3.json("../data/Additional/sankey_data_male.json", function(error, graph) {
+d3.json("./data/Additional/sankey_data_male.json", function(error, graph) {
 
   sankey2
       .nodes(graph.nodes)
@@ -292,7 +292,7 @@ var sankey3 = d3.sankey()
 var path3 = sankey3.link();
 
 // load the data
-d3.json("../data/Additional/sankey_data_female.json", function(error, graph) {
+d3.json("./data/Additional/sankey_data_female.json", function(error, graph) {
 
   sankey3
       .nodes(graph.nodes)
