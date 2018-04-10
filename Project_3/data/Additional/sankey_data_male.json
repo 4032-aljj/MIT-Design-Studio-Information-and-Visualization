@@ -1,0 +1,30 @@
+
+
+{
+"nodes":[
+{"node":0,"name":"Some Highschool", "color":"#00A388"},
+{"node":1,"name":"Highschool Diploma","color":"#79BD8F"},
+{"node":2,"name":"Some College","color":"#BEEB9F"},
+{"node":3,"name":"Bachelors Degree","color":"#FFFF9D"},
+{"node":4,"name":"Advanced Degree","color":"#FF6138"},
+{"node":5,"name":"$30,472","color":"#00A388"},
+{"node":6,"name":"$41,996","color":"#79BD8F"},
+{"node":7,"name":"$47,580","color":"#BEEB9F"},
+{"node":8,"name":"$72,540","color":"#FFFF9D"},
+{"node":9,"name":"$91,312","color":"#FF6138"}
+    
+
+    
+    
+],
+"links":[
+{"source":0,"target":5,"value":4925,"color":"#00A388"},
+{"source":0,"target":1,"value":52605,"color":"#D3D3D3"},
+{"source":1,"target":6,"value":15935,"color":"#79BD8F"},
+{"source":1,"target":2,"value":36670,"color":"#D3D3D3"},
+{"source":2,"target":7,"value":14695,"color":"#BEEB9F"},
+{"source":2,"target":3,"value":21974,"color":"#D3D3D3"},
+{"source":3,"target":4,"value":7830,"color":"#D3D3D3"},
+{"source":3,"target":8,"value":14144,"color":"#FFFF9D"},
+{"source":4,"target":9,"value":7830,"color":"#FF6138"}
+]}
