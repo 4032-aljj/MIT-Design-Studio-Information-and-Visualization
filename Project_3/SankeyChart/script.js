@@ -68,7 +68,7 @@ var units = "Widgets";
 
 // set the dimensions and margins of the graph
 var margin = {top: 10, right: 10, bottom: 10, left: 10},
-    width =  document.documentElement.clientWidth - margin.left - margin.right,
+    width =  document.documentElement.clientWidth - margin.left - margin.right- 100,
     height = 300 - margin.top - margin.bottom;
 
 // format variables
@@ -154,12 +154,24 @@ svg.selectAll(".link")
 // add in the title for the nodes
   node.append("text")
       .attr("x", -6)
-      .attr("y", function(d) { return d.dy / 2; })
+      .attr("y", function(d) { return 0; })//return d.dy / 2;
       .attr("dy", ".35em")
       .attr("text-anchor", "end")
       .attr("transform", null)
       .text(function(d) { return d.name; })
-    .filter(function(d) { return d.x < width / 2; })
+    .filter(function(d) { 
+      
+      if (d.name.startsWith("$")){
+        return false;   
+      }
+      else{
+          return true;
+          
+          //d.x < width ; 
+      }
+                        
+                        
+                        })
       .attr("x", 6 + sankey.nodeWidth())
       .attr("text-anchor", "start");
 
@@ -253,12 +265,24 @@ svg2.selectAll(".link")
 // add in the title for the nodes
   node2.append("text")
       .attr("x", -6)
-      .attr("y", function(d) { return d.dy / 2; })
+      .attr("y", function(d) { return 0; })//return d.dy / 2;
       .attr("dy", ".35em")
       .attr("text-anchor", "end")
       .attr("transform", null)
       .text(function(d) { return d.name; })
-    .filter(function(d) { return d.x < width / 2; })
+    .filter(function(d) { 
+      
+      if (d.name.startsWith("$")){
+        return false;   
+      }
+      else{
+          return true;
+          
+          //d.x < width ; 
+      }
+                        
+                        
+                        })
       .attr("x", 6 + sankey.nodeWidth())
       .attr("text-anchor", "start");
 
@@ -350,16 +374,29 @@ svg3.selectAll(".link")
 		  return d.name + "\n" + format(d.value); });
 
 // add in the title for the nodes
-  node3.append("text")
+    node3.append("text")
       .attr("x", -6)
-      .attr("y", function(d) { return d.dy / 2; })
+      .attr("y", function(d) { return 0; })//return d.dy / 2;
       .attr("dy", ".35em")
       .attr("text-anchor", "end")
       .attr("transform", null)
       .text(function(d) { return d.name; })
-    .filter(function(d) { return d.x < width / 2; })
+    .filter(function(d) { 
+      
+      if (d.name.startsWith("$")){
+        return false;   
+      }
+      else{
+          return true;
+          
+          //d.x < width ; 
+      }
+                        
+                        
+                        })
       .attr("x", 6 + sankey.nodeWidth())
       .attr("text-anchor", "start");
+
 
  //the function for moving the nodes
   function dragmove(d) {
