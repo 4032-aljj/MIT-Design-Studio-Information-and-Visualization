@@ -63,3 +63,15 @@ button:hover{
 #sankey3{
     display:none;
 }
+#sankey1 svg{
+    width:100vw;
+}
+
+#sankey2 svg{
+    width:100vw;
+}
+
+#sankey3 svg{
+    width:100vw;
+}
+

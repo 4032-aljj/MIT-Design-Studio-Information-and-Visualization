@@ -68,7 +68,7 @@ var units = "Widgets";
 
 // set the dimensions and margins of the graph
 var margin = {top: 10, right: 10, bottom: 10, left: 10},
-    width =  document.documentElement.clientWidth - margin.left - margin.right- 100,
+    width = document.documentElement.clientWidth- margin.left -margin.right-100,
     height = 300 - margin.top - margin.bottom;
 
 // format variables
