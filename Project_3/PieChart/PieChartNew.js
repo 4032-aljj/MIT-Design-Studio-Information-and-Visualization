@@ -35,7 +35,7 @@ var legendRectSize = (radius * 0.05);
 var legendSpacing = radius * 0.02;
 
 
-var div = d3.select("#pie-plot-container").append("div").attr("class", "toolTip");
+// var div = d3.select("#pie-plot-container").append("div").attr("class", "toolTip");
 
 svgPie.attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
 
@@ -267,7 +267,7 @@ function change(data) {
   var text = slice.append("text")
       .attr("dy", ".35em")
       .text(function(d) {
-        	return (d.data.label+": "+d.value+"%");
+        	return (d.data.label+": "+d.data.value+"%");
       });
 
   function midAngle(d){
@@ -296,9 +296,9 @@ function change(data) {
               return midAngle(d2) < Math.PI ? "start":"end";
           };
       })
-      .text(function(d) {
-          return (d.data.label);
-      });
+      // .text(function(d) {
+      //     return (d.data.label);
+      // });
 
   /* ------- SLICE TO TEXT POLYLINES -------*/
 	svgPie.select(".lines").selectAll("polyline").remove();
