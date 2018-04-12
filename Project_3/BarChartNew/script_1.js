@@ -14,7 +14,7 @@ function drawPlotOne () {
   const y = d3.scaleLinear().rangeRound([height, 0])
   const g = svg.append('g').attr('transform', 'translate(' + margin.left + ',' + margin.top + ')')
 
-  d3.tsv('aveIncome.csv', function (d) {
+  d3.tsv('./data/Additional/aveIncome.csv', function (d) {
     d.income = +d.income
     return d
   }, function (error, data) {
@@ -23,7 +23,7 @@ function drawPlotOne () {
     x.domain(data.map(function (d) {
       return d.year
     }))
-    
+
     y.domain([0, 125000])
 //    y.domain([0, d3.max(data, function (d) {
 //      return d.income
@@ -40,8 +40,8 @@ function drawPlotOne () {
       .attr("transform", "rotate(-60)" )
       .style("text-anchor", "end")
       .attr("font-size", "8.5px");
-      
-      
+
+
     // y-axis
     g.append('g')
       .attr('class', 'axis axis--y')
@@ -53,7 +53,7 @@ function drawPlotOne () {
       .attr('dy', '0.71em')
       .attr('text-anchor', 'end')
       .text('Income')
-      
+
 
     // bars
     g.selectAll('.bar')
@@ -87,7 +87,7 @@ function drawPlotTwoBack () {
   const y = d3.scaleLinear().rangeRound([height, 0])
   const g = svg.append('g').attr('transform', 'translate(' + margin.left + ',' + margin.top + ')')
 
-  d3.tsv('aveIncome.csv', function (d) {
+  d3.tsv('./data/Additional/aveIncome.csv', function (d) {
     d.income = +d.income
     return d
   }, function (error, data) {
@@ -156,7 +156,7 @@ function drawPlotTwoTop () {
   const y = d3.scaleLinear().rangeRound([height, 0])
   const g = svg.append('g').attr('transform', 'translate(' + margin.left + ',' + margin.top + ')')
 
-  d3.tsv('incomeLess9.csv', function (d) {
+  d3.tsv('./data/Additional/incomeLess9.csv', function (d) {
     d.income = +d.income
     return d
   }, function (error, data) {
@@ -167,7 +167,7 @@ function drawPlotTwoTop () {
     }))
 
     y.domain([0, 125000])
-    
+
 
 
     // x-axis
@@ -228,7 +228,7 @@ function drawPlotThreeBack () {
   const y = d3.scaleLinear().rangeRound([height, 0])
   const g = svg.append('g').attr('transform', 'translate(' + margin.left + ',' + margin.top + ')')
 
-  d3.tsv('aveIncome.csv', function (d) {
+  d3.tsv('./data/Additional/aveIncome.csv', function (d) {
     d.income = +d.income
     return d
   }, function (error, data) {
@@ -297,7 +297,7 @@ function drawPlotThreeTop () {
   const y = d3.scaleLinear().rangeRound([height, 0])
   const g = svg.append('g').attr('transform', 'translate(' + margin.left + ',' + margin.top + ')')
 
-  d3.tsv('income9to12.csv', function (d) {
+  d3.tsv('./data/Additional/income9to12.csv', function (d) {
     d.income = +d.income
     return d
   }, function (error, data) {
@@ -308,7 +308,7 @@ function drawPlotThreeTop () {
     }))
 
     y.domain([0, 125000])
-    
+
     // x-axis
     g.append('g')
       .attr('class', 'axis axis--x')
@@ -320,8 +320,8 @@ function drawPlotThreeTop () {
       .attr("transform", "rotate(-60)" )
       .style("text-anchor", "end")
       .attr("font-size", "8.5px");
-      
-      
+
+
     // bars
     g.selectAll('.bar-9to12')
       .data(data)
@@ -357,7 +357,7 @@ function drawPlotFourBack () {
   const y = d3.scaleLinear().rangeRound([height, 0])
   const g = svg.append('g').attr('transform', 'translate(' + margin.left + ',' + margin.top + ')')
 
-  d3.tsv('aveIncome.csv', function (d) {
+  d3.tsv('./data/Additional/aveIncome.csv', function (d) {
     d.income = +d.income
     return d
   }, function (error, data) {
@@ -426,7 +426,7 @@ function drawPlotFourTop () {
   const y = d3.scaleLinear().rangeRound([height, 0])
   const g = svg.append('g').attr('transform', 'translate(' + margin.left + ',' + margin.top + ')')
 
-  d3.tsv('incomeHighSchoolGrad.csv', function (d) {
+  d3.tsv('./data/Additional/incomeHighSchoolGrad.csv', function (d) {
     d.income = +d.income
     return d
   }, function (error, data) {
@@ -449,8 +449,8 @@ function drawPlotFourTop () {
       .attr("transform", "rotate(-60)" )
       .style("text-anchor", "end")
       .attr("font-size", "8.5px");
-      
-      
+
+
 
     // bars
     g.selectAll('.bar-highschool')
@@ -487,7 +487,7 @@ function drawPlotFiveBack () {
   const y = d3.scaleLinear().rangeRound([height, 0])
   const g = svg.append('g').attr('transform', 'translate(' + margin.left + ',' + margin.top + ')')
 
-  d3.tsv('aveIncome.csv', function (d) {
+  d3.tsv('./data/Additional/aveIncome.csv', function (d) {
     d.income = +d.income
     return d
   }, function (error, data) {
@@ -556,7 +556,7 @@ function drawPlotFiveTop () {
   const y = d3.scaleLinear().rangeRound([height, 0])
   const g = svg.append('g').attr('transform', 'translate(' + margin.left + ',' + margin.top + ')')
 
-  d3.tsv('incomeSomeCollege.csv', function (d) {
+  d3.tsv('./data/Additional/incomeSomeCollege.csv', function (d) {
     d.income = +d.income
     return d
   }, function (error, data) {
@@ -568,7 +568,7 @@ function drawPlotFiveTop () {
 
     y.domain([0, 125000])
 
-      
+
           // x-axis
     g.append('g')
       .attr('class', 'axis axis--x')
@@ -580,8 +580,8 @@ function drawPlotFiveTop () {
       .attr("transform", "rotate(-60)" )
       .style("text-anchor", "end")
       .attr("font-size", "8.5px");
-      
-      
+
+
 
     // bars
     g.selectAll('.bar-somecollege')
@@ -617,7 +617,7 @@ function drawPlotSixBack () {
   const y = d3.scaleLinear().rangeRound([height, 0])
   const g = svg.append('g').attr('transform', 'translate(' + margin.left + ',' + margin.top + ')')
 
-  d3.tsv('aveIncome.csv', function (d) {
+  d3.tsv('./data/Additional/aveIncome.csv', function (d) {
     d.income = +d.income
     return d
   }, function (error, data) {
@@ -686,7 +686,7 @@ function drawPlotSixTop () {
   const y = d3.scaleLinear().rangeRound([height, 0])
   const g = svg.append('g').attr('transform', 'translate(' + margin.left + ',' + margin.top + ')')
 
-  d3.tsv('associateDegree.csv', function (d) {
+  d3.tsv('./data/Additional/associateDegree.csv', function (d) {
     d.income = +d.income
     return d
   }, function (error, data) {
@@ -697,7 +697,7 @@ function drawPlotSixTop () {
     }))
 
     y.domain([0, 125000])
-    
+
     // x-axis
     g.append('g')
       .attr('class', 'axis axis--x')
@@ -709,8 +709,8 @@ function drawPlotSixTop () {
       .attr("transform", "rotate(-60)" )
       .style("text-anchor", "end")
       .attr("font-size", "8.5px");
-      
-      
+
+
     // bars
     g.selectAll('.bar-associatedegree')
       .data(data)
@@ -745,7 +745,7 @@ function drawPlotSevenBack () {
   const y = d3.scaleLinear().rangeRound([height, 0])
   const g = svg.append('g').attr('transform', 'translate(' + margin.left + ',' + margin.top + ')')
 
-  d3.tsv('aveIncome.csv', function (d) {
+  d3.tsv('./data/Additional/aveIncome.csv', function (d) {
     d.income = +d.income
     return d
   }, function (error, data) {
@@ -814,7 +814,7 @@ function drawPlotSevenTop () {
   const y = d3.scaleLinear().rangeRound([height, 0])
   const g = svg.append('g').attr('transform', 'translate(' + margin.left + ',' + margin.top + ')')
 
-  d3.tsv('bachelorDegreeMore.csv', function (d) {
+  d3.tsv('./data/Additional/bachelorDegreeMore.csv', function (d) {
     d.income = +d.income
     return d
   }, function (error, data) {
@@ -825,7 +825,7 @@ function drawPlotSevenTop () {
     }))
 
     y.domain([0, 125000])
-    
+
 
           // x-axis
     g.append('g')
@@ -838,8 +838,8 @@ function drawPlotSevenTop () {
       .attr("transform", "rotate(-60)" )
       .style("text-anchor", "end")
       .attr("font-size", "8.5px");
-      
-      
+
+
     // bars
     g.selectAll('.bar-advancedegree')
       .data(data)

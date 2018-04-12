@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="PieChart/style.css" rel="stylesheet"/>
+  </head>
+    <body>
+    <div id="pie-container">
+      <div class="container">
+        <div class="row">
+          <h1 class="col-md-12">Year:</h1>
+          <div class="col-md-12 slidecontainer">
+            <input type="range" min="1947" max="2017" value="1947" step="10" class="slider" id="myRange">
+            <p><span id="demo"></span></p>
+          </div>
+          <div id="pie-plot-container" class="col-md-12">
+            <svg id="pie-plot"></svg>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      var slider = document.getElementById("myRange");
+      var output = document.getElementById("demo");
+      output.innerHTML = slider.value;
+
+      slider.oninput = function() {
+        output.innerHTML = this.value;
+      }
+    </script>
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+    <script src="PieChart/PieChartNew.js"></script>
+  </body>
+</html>

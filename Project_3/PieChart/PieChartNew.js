@@ -1,33 +1,33 @@
 d3.select("input[value=\"1947\"]").property("checked", true);
 
-var svg = d3.select("body")
+var svgPie = d3.select("#pie-plot")
 	.append("svg")
 	.append("g")
 
-svg.append("g")
+svgPie.append("g")
 	.attr("class", "slices");
-svg.append("g")
+svgPie.append("g")
 	.attr("class", "labelName");
-svg.append("g")
+svgPie.append("g")
 	.attr("class", "labelValue");
-svg.append("g")
+svgPie.append("g")
 	.attr("class", "lines");
 
-var width = 960,
-    height = 450,
+var width = d3.select("#pie-plot").node().clientWidth,
+    height = d3.select("#pie-plot").node().clientHeight,
 	radius = Math.min(width, height) / 2;
 
-var pie = d3.layout.pie()
+var pie = d3.pie()
 	.sort(null)
 	.value(function(d) {
 		return d.value;
 	});
 
-var arc = d3.svg.arc()
+var arc = d3.arc()
 	.outerRadius(radius * 0.8)
 	.innerRadius(0);
 
-var outerArc = d3.svg.arc()
+var outerArc = d3.arc()
 	.innerRadius(radius * 0.9)
 	.outerRadius(radius * 0.9);
 
@@ -35,12 +35,12 @@ var legendRectSize = (radius * 0.05);
 var legendSpacing = radius * 0.02;
 
 
-var div = d3.select("body").append("div").attr("class", "toolTip");
+var div = d3.select("#pie-plot-container").append("div").attr("class", "toolTip");
 
-svg.attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
+svgPie.attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
 
 
-var color = d3.scale.ordinal()
+var color = d3.scaleOrdinal()
 	.range(['#FF6138','#FFFF9D','#BEEB9F','#79BD8F','#00A388']);
 
 //d3.csv("../data/Additional/pie_2017.csv", function(error, data) {
@@ -59,7 +59,7 @@ var dataset2007;
 var dataset2017;
 
 
-d3.csv("../data/Additional/pie_1947.csv",                       
+d3.csv("../data/Additional/pie_1947.csv",
         function(error, data) {
             if (error) {
                 throw error;
@@ -77,7 +77,7 @@ d3.csv("../data/Additional/pie_1947.csv",
             change(dataset1947);
 });
 
-d3.csv("../data/Additional/pie_1957.csv",                       
+d3.csv("../data/Additional/pie_1957.csv",
         function(error, data) {
             if (error) {
                 throw error;
@@ -94,7 +94,7 @@ d3.csv("../data/Additional/pie_1957.csv",
             dataset1957 = data;
 });
 
-d3.csv("../data/Additional/pie_1967.csv",                       
+d3.csv("../data/Additional/pie_1967.csv",
         function(error, data) {
             if (error) {
                 throw error;
@@ -111,7 +111,7 @@ d3.csv("../data/Additional/pie_1967.csv",
             dataset1967 = data;
 });
 
-d3.csv("../data/Additional/pie_1977.csv",                       
+d3.csv("../data/Additional/pie_1977.csv",
         function(error, data) {
             if (error) {
                 throw error;
@@ -128,7 +128,7 @@ d3.csv("../data/Additional/pie_1977.csv",
             dataset1977 = data;
 });
 
-d3.csv("../data/Additional/pie_1987.csv",                       
+d3.csv("../data/Additional/pie_1987.csv",
         function(error, data) {
             if (error) {
                 throw error;
@@ -145,7 +145,7 @@ d3.csv("../data/Additional/pie_1987.csv",
             dataset1987 = data;
 });
 
-d3.csv("../data/Additional/pie_1997.csv",                       
+d3.csv("../data/Additional/pie_1997.csv",
         function(error, data) {
             if (error) {
                 throw error;
@@ -162,7 +162,7 @@ d3.csv("../data/Additional/pie_1997.csv",
             dataset1997 = data;
 });
 
-d3.csv("../data/Additional/pie_2007.csv",                       
+d3.csv("../data/Additional/pie_2007.csv",
         function(error, data) {
             if (error) {
                 throw error;
@@ -179,7 +179,7 @@ d3.csv("../data/Additional/pie_2007.csv",
             dataset2007 = data;
 });
 
-d3.csv("../data/Additional/pie_2017.csv",                       
+d3.csv("../data/Additional/pie_2017.csv",
         function(error, data) {
             if (error) {
                 throw error;
@@ -199,7 +199,7 @@ d3.csv("../data/Additional/pie_2017.csv",
 
 d3.selectAll("input")
 	.on("change", selectDataset);
-	
+
 function selectDataset() {
 	var value = this.value;
 	if (value == "1947") {
@@ -229,109 +229,105 @@ function selectDataset() {
 }
 
 function change(data) {
-
 	/* ------- PIE SLICES -------*/
-	var slice = svg.select(".slices").selectAll("path.slice")
-        .data(pie(data), function(d){ return d.data.label });
+	var slice = svgPie.selectAll(".arc")
+	      .data(pie(data))
+	    .enter().append("g")
+	      .attr("class", "arc");
 
-    slice.enter()
-        .insert("path")
-        .style("fill", function(d) { return color(d.data.label); })
-        .attr("class", "slice");
+	slice.append("path")
+      .attr("d", arc)
+      .style("fill", function(d) { return color(d.data.label); });
 
-    slice
-        .transition().duration(2000)
-        .attrTween("d", function(d) {
-            this._current = this._current || d;
-            var interpolate = d3.interpolate(this._current, d);
-            this._current = interpolate(0);
-            return function(t) {
-                return arc(interpolate(t));
-            };
-        })
-    slice
-        .on("mousemove", function(d){
-            div.style("left", d3.event.pageX+10+"px");
-            div.style("top", d3.event.pageY-25+"px");
-            div.style("display", "inline-block");
-            div.html((d.data.label)+"<br>"+(d.data.percent)+"%");
-        });
-    slice
-        .on("mouseout", function(d){
-            div.style("display", "none");
-        });
+  slice
+      .transition().duration(2000)
+      .attrTween("d", function(d) {
+					// this._current = this._current || d;
+					var interpolate = d3.interpolate(this._current, d);
+					// this._current = interpolate(0);
+					this._current = d;
+          return function(t) {
+              return arc(interpolate(t));
+          };
+      })
+  slice
+      .on("mousemove", function(d){
+          div.style("left", d3.event.pageX+10+"px");
+          div.style("top", d3.event.pageY-25+"px");
+          div.style("display", "inline-block");
+          div.html((d.data.label)+"<br>"+(d.data.percent)+"%");
+      });
+  slice
+      .on("mouseout", function(d){
+          div.style("display", "none");
+      });
 
-    slice.exit()
-        .remove();
+  // slice.exit()
+  //     .remove();
 
+	/* ------- TEXT LABELS -------*/
+  var text = slice.append("text")
+      .attr("dy", ".35em")
+      .text(function(d) {
+        	return (d.data.label+": "+d.value+"%");
+      });
 
-    /* ------- TEXT LABELS -------*/
+  function midAngle(d){
+      return d.startAngle + (d.endAngle - d.startAngle)/2;
+  }
 
-    var text = svg.select(".labelName").selectAll("text")
-        .data(pie(data), function(d){ return d.data.label });
+	text
+      .transition().duration(2000)
+      .attrTween("transform", function(d) {
+          // this._current = this._current || d;
+          var interpolate = d3.interpolate(this._current, d);
+          // this._current = interpolate(0);
+					this._current = d;
+          return function(t) {
+              var d2 = interpolate(t);
+              var pos = outerArc.centroid(d2);
+              pos[0] = radius * (midAngle(d2) < Math.PI ? 1 : -1);
+              return "translate("+ pos +")";
+          };
+      })
+      .styleTween("text-anchor", function(d){
+          this._current = this._current || d;
+          var interpolate = d3.interpolate(this._current, d);
+          this._current = interpolate(0);
+          return function(t) {
+              var d2 = interpolate(t);
+              return midAngle(d2) < Math.PI ? "start":"end";
+          };
+      })
+      .text(function(d) {
+          return (d.data.label);
+      });
 
-    text.enter()
-        .append("text")
-        .attr("dy", ".35em")
-        .text(function(d) {
-            return (d.data.label+": "+d.value+"%");
-        });
+    // text.exit()
+    //     .remove();
 
-    function midAngle(d){
-        return d.startAngle + (d.endAngle - d.startAngle)/2;
-    }
+  /* ------- SLICE TO TEXT POLYLINES -------*/
 
-    text
-        .transition().duration(2000)
-        .attrTween("transform", function(d) {
-            this._current = this._current || d;
-            var interpolate = d3.interpolate(this._current, d);
-            this._current = interpolate(0);
-            return function(t) {
-                var d2 = interpolate(t);
-                var pos = outerArc.centroid(d2);
-                pos[0] = radius * (midAngle(d2) < Math.PI ? 1 : -1);
-                return "translate("+ pos +")";
-            };
-        })
-        .styleTween("text-anchor", function(d){
-            this._current = this._current || d;
-            var interpolate = d3.interpolate(this._current, d);
-            this._current = interpolate(0);
-            return function(t) {
-                var d2 = interpolate(t);
-                return midAngle(d2) < Math.PI ? "start":"end";
-            };
-        })
-        .text(function(d) {
-            return (d.data.label);
-        });
+	var polyline = svgPie.select(".lines")
+			.selectAll("polyline")
+			.data(pie(data), function(d){ return d.data.label });
 
+	polyline.enter()
+			.append("polyline")
 
-    text.exit()
-        .remove();
+	polyline.transition().duration(2000)
+	    .attrTween("points", function(d){
+	        this._current = this._current || d;
+	        var interpolate = d3.interpolate(this._current, d);
+	        this._current = interpolate(0);
+	        return function(t) {
+	            var d2 = interpolate(t);
+	            var pos = outerArc.centroid(d2);
+	            pos[0] = radius * 0.95 * (midAngle(d2) < Math.PI ? 1 : -1);
+	            return [arc.centroid(d2), outerArc.centroid(d2), pos];
+	        };
+	    });
 
-    /* ------- SLICE TO TEXT POLYLINES -------*/
-
-    var polyline = svg.select(".lines").selectAll("polyline")
-        .data(pie(data), function(d){ return d.data.label });
-
-    polyline.enter()
-        .append("polyline");
-
-    polyline.transition().duration(2000)
-        .attrTween("points", function(d){
-            this._current = this._current || d;
-            var interpolate = d3.interpolate(this._current, d);
-            this._current = interpolate(0);
-            return function(t) {
-                var d2 = interpolate(t);
-                var pos = outerArc.centroid(d2);
-                pos[0] = radius * 0.95 * (midAngle(d2) < Math.PI ? 1 : -1);
-                return [arc.centroid(d2), outerArc.centroid(d2), pos];
-            };
-        });
-
-    polyline.exit()
-        .remove();
+  // polyline.exit()
+  //     .remove();
 };

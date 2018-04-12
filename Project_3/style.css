@@ -12,7 +12,7 @@ body {
   width: 100vw;
   align-content: center;
   align-items: center;
-    
+
 }
 
 p{
@@ -21,14 +21,4 @@ p{
     margin:30px;
     margin-left:0;
     font-size:1.2em;
-}
-
-
-#bar-container {
-  background-color: #FFF;
-}
-
-#pie-container {
-  color: #FFF;
-  padding: 50px;
 }

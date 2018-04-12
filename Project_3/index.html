@@ -1,14 +1,16 @@
 <!DOCTYPE html>
-<meta charset="utf-8">
-<title>Income and Education</title>
-<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-<link href="MapChart/nouislider.min.css" rel="stylesheet"/>
-<link href="style.css" rel="stylesheet">
-<link href="SankeyChart/style.css" rel="stylesheet">
-<link href="BarChart/style.css" rel="stylesheet">
-<link href="PieChart/style.css" rel="stylesheet">
-<link href="MapChart/style.css" rel="stylesheet">
+<head>
+  <meta charset="utf-8">
+  <title>Income and Education</title>
+  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link href="MapChart/nouislider.min.css" rel="stylesheet"/>
+  <link href="style.css" rel="stylesheet">
+  <link href="SankeyChart/style.css" rel="stylesheet">
+  <link href="BarChartNew/style.css" rel="stylesheet">
+  <link href="PieChart/style.css" rel="stylesheet">
+  <link href="MapChart/style.css" rel="stylesheet">
+</head>
 
 <body>
 <div id = "Title">Income and Educational Attainment</div>
@@ -63,71 +65,85 @@
 </div>
 
 <!--Bar Charts-->
-<div id="bar-container" class="container">
+<div id=bar-container>
+  <div class="container">
 
-      <!-- heading -->
-      <div class="row">
-        <h1 class="col-md-12">Annual income per household in the United States</h1>
-        <h2 class="col-md-12">by Educational Attainment of Householder</h2>
-        <h2 class="col-md-12">(in US dollar, 1996 ~ 2016)</h2>
-      </div>
+    <!-- heading -->
+    <div class="row">
+      <h1 class="col-md-12">Annual income per household in the United States</h1>
+      <h2 class="col-md-12">by Educational Attainment of Householder</h2>
+      <h2 class="col-md-12">(in US dollar, 1996 ~ 2016)</h2>
+    </div>
 
-      <!-- plot 1 -->
-      <div class="row">
-        <div class="col-md-12 plot">
-          <svg id="plot-1" width="190" height="850"></svg>
-          <h3 class="col-md-12">——All Households——</h3>
-        </div>
-      </div>
-
-
-      <!-- plots 2-5 -->
-      <div class="row">
-        <div class="col-md-2 plot">
-<!--          <label for="plot-2" class="label">aveIncome.csv</label>-->
-          <svg id="plot-2" width="190" height="500"></svg>
-          <h4>——Less than 9th grade——</h4>
-        </div>
-        <div class="col-md-2 plot">
-          <svg id="plot-3" width="190" height="500"></svg>
-          <h5>——9th to 12th grade——</h5>
-          <h6>no diploma</h6>
-        </div>
-        <div class="col-md-2 plot">
-          <svg id="plot-4" width="190" height="500"></svg>
-          <h5>——High School grad——</h5>
-        </div>
-        <div class="col-md-2 plot">
-          <svg id="plot-5" width="190" height="500"></svg>
-          <h5>———Some college———</h5>
-          <h6>no degree</h6>
-        </div>
-        <div class="col-md-2 plot">
-          <svg id="plot-6" width="190" height="500"></svg>
-          <h5>——Associate Degree——</h5>
-        </div>
-        <div class="col-md-2 plot">
-          <svg id="plot-7" width="190" height="500"></svg>
-          <h5>——Bachelor's Degree——</h5>
-          <h6>or more</h6>
-        </div>
-
+    <!-- plot 1 -->
+    <div class="row">
+      <div class="col-md-12 plot">
+        <svg id="plot-1" width="190" height="500"></svg>
+        <h3 class="col-md-12">——All Households——</h3>
       </div>
     </div>
 
-    <div id="pie-container">
-      <div class="row">
-        <div class="col-md-6">
-          <h2>Education Attainment in The United States Over Time - 2017</h2>
-          <div id='plot1' style="height:500px"></div>
-        </div>
-        <div class="col-md-6">
-          <h2>Education Attainment in The United States Over Time - 1947</h2>
-          <div id='plot2' style="height:500px"></div>
-        </div>
+
+    <!-- plots 2-5 -->
+    <div class="row">
+      <div class="col-md-2 plot">
+  <!--          <label for="plot-2" class="label">aveIncome.csv</label>-->
+        <svg id="plot-2" width="190" height="500"></svg>
+        <h4>——Less than 9th grade——</h4>
+      </div>
+      <div class="col-md-2 plot">
+        <svg id="plot-3" width="190" height="500"></svg>
+        <h5>——9th to 12th grade——</h5>
+        <h6>no diploma</h6>
+      </div>
+      <div class="col-md-2 plot">
+        <svg id="plot-4" width="190" height="500"></svg>
+        <h5>——High School grad——</h5>
+      </div>
+      <div class="col-md-2 plot">
+        <svg id="plot-5" width="190" height="500"></svg>
+        <h5>———Some college———</h5>
+        <h6>no degree</h6>
+      </div>
+      <div class="col-md-2 plot">
+        <svg id="plot-6" width="190" height="500"></svg>
+        <h5>——Associate Degree——</h5>
+      </div>
+      <div class="col-md-2 plot">
+        <svg id="plot-7" width="190" height="500"></svg>
+        <h5>——Bachelor's Degree——</h5>
+        <h6>or more</h6>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- Pie Chart -->
+<div id="pie-container">
+  <div class="container">
+    <div class="row">
+      <h1 class="col-md-12">Year:</h1>
+      <div class="col-md-12 slidecontainer">
+        <input type="range" min="1947" max="2017" value="1947" step="10" class="slider" id="myRange">
+        <p><span id="demo"></span></p>
+      </div>
+      <div id="pie-plot-container" class="col-md-12">
+        <svg id="pie-plot"></svg>
       </div>
     </div>
+  </div>
+</div>
 
+<script>
+  var slider = document.getElementById("myRange");
+  var output = document.getElementById("demo");
+  output.innerHTML = slider.value;
+
+  slider.oninput = function() {
+    output.innerHTML = this.value;
+  }
+</script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://d3js.org/topojson.v2.min.js"></script>
 <script src="https://d3js.org/d3.v4.min.js"></script>
@@ -138,9 +154,8 @@
 <script src="MapChart/wNumb.js"></script>
 <script src="MapChart/income_interactive.js"></script>
 <script src="MapChart/education_interactive.js"></script>
-<script src ="BarChart/script_1.js"></script>
-<script src="PieChart/pie2.js"></script>
-
+<script src="BarChartNew/script_1.js"></script>
+<script src="PieChart/PieChartNew.js"></script>
 
 
 

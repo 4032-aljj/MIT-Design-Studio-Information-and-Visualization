@@ -114,40 +114,35 @@ path.slice {
 */
 
 
-
-
-body {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  width: 960px;
-  height: 500px;
+#pie-container #pie-plot-container {
   position: relative;
 }
 
-svg {
+#pie-container #pie-plot {
 	width: 100%;
-	height: 100%;
+	height: 500px;
 }
 
-path.slice{
+#pie-container path.slice{
 	stroke-width:1px;
     stroke: white;
 }
 
-polyline{
+#pie-container polyline{
 	opacity: .3;
 	stroke: black;
 	stroke-width: 2px;
 	fill: none;
 }
 
-.labelValue
+#pie-container .labelValue
 {
 	font-size: 60%;
 	opacity: .5;
-	
+
 }
 
-.toolTip {
+#pie-container .toolTip {
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     position: absolute;
     display: none;
@@ -162,15 +157,16 @@ polyline{
     padding: 5px;
     text-align: center;
 }
-text {
+
+#pie-container text {
   font: 12px sans-serif;
 }
 
-fieldset {
+#pie-container fieldset {
    border:0 none;
 }
 
-fieldset {
+#pie-container fieldset {
     margin-left: auto;
     margin-right: auto;
     text-align: center;
@@ -179,21 +175,21 @@ fieldset {
 }
 
 
-.slidecontainer {
+#pie-container .slidecontainer {
     width: 70%;
     margin-left: auto;
     margin-right: auto;
 }
 
-.slider:hover {
+#pie-container .slider:hover {
     opacity: 1;
 }
 
-.slider {
+#pie-container .slider {
     -webkit-appearance: none;
     width: 100%;
     height: 15px;
-    border-radius: 5px;   
+    border-radius: 5px;
     background: #d3d3d3;
     outline: none;
     opacity: 0.7;
@@ -201,17 +197,9 @@ fieldset {
     transition: opacity .2s;
 }
 
-.slider::-webkit-slider-thumb {
+#pie-container .slider::-webkit-slider-thumb {
     -webkit-appearance: none;
     appearance: none;
-    width: 25px;
-    height: 25px;
-    border-radius: 50%; 
-    background: #79BD8F;
-    cursor: pointer;
-}
-
-.slider::-moz-range-thumb {
     width: 25px;
     height: 25px;
     border-radius: 50%;
@@ -219,10 +207,17 @@ fieldset {
     cursor: pointer;
 }
 
-h1 {
+#pie-container .slider::-moz-range-thumb {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background: #79BD8F;
+    cursor: pointer;
+}
+
+#pie-container p {
     margin-left: auto;
     margin-right: auto;
     text-align: center;
-    font-family: sans-serif;
     font-size: 20px;
 }
