@@ -242,9 +242,9 @@ function change(data) {
   slice
       .transition().duration(2000)
       .attrTween("d", function(d) {
-					// this._current = this._current || d;
-					var interpolate = d3.interpolate(this._current, d);
-					// this._current = interpolate(0);
+          // this._current = this._current || d;
+          var interpolate = d3.interpolate(this._current, d);
+          // this._current = interpolate(0);
 					this._current = d;
           return function(t) {
               return arc(interpolate(t));
@@ -279,10 +279,10 @@ function change(data) {
 	text
       .transition().duration(2000)
       .attrTween("transform", function(d) {
-          // this._current = this._current || d;
-          var interpolate = d3.interpolate(this._current, d);
-          // this._current = interpolate(0);
-					this._current = d;
+				  // this._current = this._current || d;
+				  var interpolate = d3.interpolate(this._current, d);
+				  // this._current = interpolate(0);
+				  this._current = d;
           return function(t) {
               var d2 = interpolate(t);
               var pos = outerArc.centroid(d2);
@@ -317,9 +317,11 @@ function change(data) {
 
 	polyline.transition().duration(2000)
 	    .attrTween("points", function(d){
+				console.log('poly')
 	        this._current = this._current || d;
 	        var interpolate = d3.interpolate(this._current, d);
-	        this._current = interpolate(0);
+					// this._current = interpolate(0);
+					this._current = d;
 	        return function(t) {
 	            var d2 = interpolate(t);
 	            var pos = outerArc.centroid(d2);
