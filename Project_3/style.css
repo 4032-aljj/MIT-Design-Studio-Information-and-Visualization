@@ -4,6 +4,9 @@ body {
 #Title{
     align-content: center;
     font-size: 2em;
+    
+}
+header{
     margin:50px;
 }
 #sankey-container {
