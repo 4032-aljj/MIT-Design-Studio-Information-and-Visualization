@@ -59,7 +59,7 @@ var dataset2007;
 var dataset2017;
 
 
-d3.csv("../data/Additional/pie_1947.csv",
+d3.csv("./data/Additional/pie_1947.csv",
         function(error, data) {
             if (error) {
                 throw error;
@@ -77,7 +77,7 @@ d3.csv("../data/Additional/pie_1947.csv",
             change(dataset1947);
 });
 
-d3.csv("../data/Additional/pie_1957.csv",
+d3.csv("./data/Additional/pie_1957.csv",
         function(error, data) {
             if (error) {
                 throw error;
@@ -94,7 +94,7 @@ d3.csv("../data/Additional/pie_1957.csv",
             dataset1957 = data;
 });
 
-d3.csv("../data/Additional/pie_1967.csv",
+d3.csv("./data/Additional/pie_1967.csv",
         function(error, data) {
             if (error) {
                 throw error;
@@ -128,7 +128,7 @@ d3.csv("../data/Additional/pie_1977.csv",
             dataset1977 = data;
 });
 
-d3.csv("../data/Additional/pie_1987.csv",
+d3.csv("./data/Additional/pie_1987.csv",
         function(error, data) {
             if (error) {
                 throw error;
@@ -162,7 +162,7 @@ d3.csv("../data/Additional/pie_1997.csv",
             dataset1997 = data;
 });
 
-d3.csv("../data/Additional/pie_2007.csv",
+d3.csv("./data/Additional/pie_2007.csv",
         function(error, data) {
             if (error) {
                 throw error;
@@ -179,7 +179,7 @@ d3.csv("../data/Additional/pie_2007.csv",
             dataset2007 = data;
 });
 
-d3.csv("../data/Additional/pie_2017.csv",
+d3.csv("./data/Additional/pie_2017.csv",
         function(error, data) {
             if (error) {
                 throw error;
