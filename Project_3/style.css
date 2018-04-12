@@ -1,49 +1,57 @@
 body {
   font-family: 'Roboto', sans-serif;
+  text-align: center;
 }
-#Title{
-    align-content: center;
-    font-size: 2em;
-    
-}
-header{
-    margin:50px;
-}
+
 #sankey-container {
   background-color: #FFF;
-  margin: 30px;
+  /* margin: 30px; */
   width: 100vw;
   align-content: center;
   align-items: center;
-
 }
 
-#sankey1 {
-  align-self: center;
-  
+#sankey-wrapper {
+  width: 100%;
+  padding-left: 60px;
+  overflow-x: scroll;
 }
 
 p{
     padding-top:20px;
+    max-width: 800px;
     text-align: left;
     margin-left:0;
-    font-size:1.2em;
+    /* font-size:1.2em; */
+}
+
+#Title{
+    align-content: center;
+    font-size: 2em;
+}
+
+#names {
+    max-width: 100%;
+    text-align: center;
+}
+
+header{
+    margin: 50px;
 }
 
 
-#sankey-container p{
+/* #sankey-container p{
     padding-top:20px;
     text-align: left;
     margin-left:50px;
     font-size:1.2em;
-}
+} */
 
 h1{
     font-weight:bold;
 }
 
-#pie-container .row{
-    align-content: center;
-    align-items: center;
-    text-align: center;
+h2 {
+  font-weight: bolder;
+  font-size: 150%;
 }

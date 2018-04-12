@@ -1,29 +1,34 @@
-h1{
+/* #bar-container h3{
   font-weight: 400;
   text-transform: capitalize;
   letter-spacing: 0.03em;
   font-size: 15pt;
   margin-top: 40px;
   text-align: center;
-}
+} */
 
-h2{
+/* #bar-container h2{
   font-weight: 300;
   letter-spacing: 0.03em;
   font-size: 12pt;
   text-align: center;
+} */
+
+#bar-container {
+  padding: 50px 0;
 }
 
-h3{
+#bar-container .subtitle {
   font-weight: 300;
   letter-spacing: 0.03em;
   font-size: 10pt;
   text-align: center;
-    margin-top: -30px;
+  margin-top: -20px;
+  margin-bottom: 0;
 /*        margin-bottom: 30px;*/
 }
 
-h4{
+#bar-container h4{
   font-weight: 300;
   letter-spacing: 0.03em;
   font-size: 8pt;
@@ -33,17 +38,17 @@ h4{
   margin-left: 22px;
 }
 
-h5{
+#bar-container h3{
   font-weight: 300;
   letter-spacing: 0.03em;
   font-size: 8pt;
   text-align: center;
   margin-top: -30px;
 /*  margin-bottom: 30px;*/
-  margin-left: 30px;
+  margin-left: 35px;
 }
 
-h6{
+#bar-container h6{
   font-weight: 300;
   letter-spacing: 0.03em;
   font-size: 8pt;
@@ -59,7 +64,7 @@ h6{
   margin-left: auto;
   margin-right: auto;
   margin-bottom:40px;
-    
+
 }
 
 #plot-2 {
@@ -110,7 +115,7 @@ h6{
   margin-bottom:40px;
 }
 
-svg {
+#bar-container svg {
 /*  background-color: #f9f9f9;*/
   margin-left: auto;
   margin-right: auto;
@@ -119,87 +124,87 @@ svg {
   /*height: 500px;*/
 }
 
-.bar {
+#bar-container .bar {
   fill: #f2f2f2;
 }
 
-.bar:hover {
+#bar-container .bar:hover {
   fill: #FF6138;
 }
 
 
-.bar-lightgrey {
+#bar-container .bar-lightgrey {
   fill: #f2f2f2;
 }
 
 
-.bar-less9 {
+#bar-container .bar-less9 {
   fill: #D0FA9A;
 /*  opacity: 0.7;  */
 }
 
-.bar-less9:hover {
+#bar-container .bar-less9:hover {
   fill: #FF5B34;
 }
 
 
-.bar-9to12 {
+#bar-container .bar-9to12 {
   fill: #C5ED92;
 /*  opacity: 0.7;  */
 }
 
-.bar-9to12:hover {
+#bar-container .bar-9to12:hover {
   fill: #E5522F;
 }
 
-.bar-highschool {
+#bar-container .bar-highschool {
   fill: #A3DB95;
 /*  opacity: 0.7;  */
 }
 
-.bar-highschool:hover {
+#bar-container .bar-highschool:hover {
   fill: #BF4427;
 }
 
 
-.bar-somecollege {
+#bar-container .bar-somecollege {
   fill: #79BD8F;
 /*  opacity: 0.7;  */
 }
 
-.bar-somecollege:hover {
+#bar-container .bar-somecollege:hover {
   fill: #7F2D1A;
 }
 
-.bar-associatedegree {
+#bar-container .bar-associatedegree {
   fill: #007864;
 /*  opacity: 0.7;  */
 }
 
-.bar-associatedegree:hover {
+#bar-container .bar-associatedegree:hover {
   fill: #571F12;
 }
 
 
-.bar-advancedegree {
+#bar-container .bar-advancedegree {
   fill: #005748;
 /*  opacity: 0.7;  */
 }
 
-.bar-advancedegree:hover {
+#bar-container .bar-advancedegree:hover {
   fill: #40170D;
 }
 
-.axis--x path {
+#bar-container .axis--x path {
   display: none;
 }
 
-.plot {
+#bar-container .plot {
   /*border: 1px #c32 dashed;*/
   min-height: 20rem;
 }
 
-.plot > svg {
+#bar-container .plot > svg {
   margin-left: auto;
   margin-right: auto;
 }

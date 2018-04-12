@@ -5,24 +5,37 @@
   <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   <link href="MapChart/nouislider.min.css" rel="stylesheet"/>
-  <link href="style.css" rel="stylesheet">
   <link href="SankeyChart/style.css" rel="stylesheet">
   <link href="BarChartNew/style.css" rel="stylesheet">
   <link href="PieChart/style.css" rel="stylesheet">
   <link href="MapChart/style.css" rel="stylesheet">
+  <link href="style.css" rel="stylesheet">
 </head>
 
 <body>
 <header>
-<div id = "Title">Income and Educational Attainment</div>
-<div id = "names">Alisa Ono, Jiani Zeng, Joshua Graves, Lila Jansen </div>
+<h1 id = "Title">Income and Educational Attainment</h1>
+<p id = "names">Alisa Ono, Jiani Zeng, Joshua Graves, Lila Jansen </p>
 </header>
   <div id="sankey-container">
-    <h1>Median Income By Educational Attainment</h1>
-    <p>This sankey chart visualizes the flow of workers in the united states through levels of educational attainment towards the median salary associated with their highest level of education. By clicking on the buttons at the bottom of the chart, you can see the drastic difference in median income and educational attainment between male and female workers.  </p>
-    <div id ="sankey1"></div>
-    <div id ="sankey2"></div>
-    <div id ="sankey3"></div>
+    <div class="row">
+      <h2 class="col-md-12">Median Income By Educational Attainment</h2>
+      <div class="col-md-12" style="text-align: center;">
+        <p style="display: inline-block;">
+          This sankey chart visualizes the flow of workers in the united states
+          through levels of educational attainment towards the median salary
+          associated with their highest level of education. By clicking on
+          the buttons at the bottom of the chart, you can see the drastic
+          difference in median income and educational attainment between
+          male and female workers.
+        </p>
+      </div>
+    </div>
+    <div id="sankey-wrapper">
+      <div id ="sankey1"></div>
+      <div id ="sankey2"></div>
+      <div id ="sankey3"></div>
+    </div>
     <div id ="controlPanel">
         <button id ="women" type="button">Female Workers 25+</button>
         <button id = "all" type="button">All Workers 25+</button>
@@ -34,8 +47,19 @@
 <div id="map-container">
   <div class="container">
     <div class="row">
+      <h2 class="col-md-12">Income and Educational Attainment</h2>
+      <div class="col-md-12" style="text-align: center;">
+        <p style="display: inline-block;">
+          The map charts below visualize the median household income (left) and
+          the educational attainment (right) by state. Use the sliders to select
+          the ranges of incomes and educational attainment levels to compare
+          the distributions. Data from:
+        </p>
+      </div>
+    </div>
+    <div class="row">
       <div class="col-md-6">
-        <h2>Median Household Income by State</h2>
+        <h3>Median Household Income by State</h3>
         <div id='legend-income' class="legend"></div>
         <div id='plot-income' class="plot"></div>
         <div id="slider-income" class="slider"></div>
@@ -43,7 +67,7 @@
       </div>
       <!-- /.col-md-6 -->
       <div class="col-md-6">
-        <h2>Educational Attainment by State</h2>
+        <h3>Educational Attainment by State</h3>
         <div id='legend-education' class="legend"></div>
         <div id='plot-education' class="plot"></div>
         <div id="slider-education-container" class="slider-container">
@@ -72,22 +96,25 @@
   <div class="container">
     <!-- heading -->
     <div class="row">
-    <p><br /> The bar chart below demonstrates the trend of household income during the past 10 years. The chart on the top (with grey bars) shows the average annual income per household within the 10 years. The six individual charts show the trend of household income with regards to educational attainment level of the householder.
-            <br />
-            <i>Data from: <a href="https://www.census.gov/data/tables/time-series/demo/income-poverty/cps-hinc/hinc-01.html">Census Bureau</a></i>
+      <h2 class="col-md-12">Annual income per household in the United States</h2>
+      <p class="col-md-12 subtitle">by Educational Attainment of Householder</p>
+      <p class="col-md-12 subtitle">(in US dollar, 1996 ~ 2016)</p>
+      <div class="col-md-12" style="text-align: center;">
+        <p style="display: inline-block;">
+          The bar chart below demonstrates the trend of household income during the past 10 years.
+          The chart on the top (with grey bars) shows the average annual income per household within
+          the 10 years. The six individual charts show the trend of household income with regards to
+          educational attainment level of the householder.<br/>
+          <i>Data from: <a href="https://www.census.gov/data/tables/time-series/demo/income-poverty/cps-hinc/hinc-01.html">Census Bureau</a></i>
         </p>
-      <h1 class="col-md-12">Annual income per household in the United States</h1>
-        
-        
-      <h2 class="col-md-12">by Educational Attainment of Householder</h2>
-      <h2 class="col-md-12">(in US dollar, 1996 ~ 2016)</h2>
+      </div>
     </div>
 
     <!-- plot 1 -->
     <div class="row">
       <div class="col-md-12 plot">
         <svg id="plot-1" width="190" height="500"></svg>
-        <h3 class="col-md-12">——All Households——</h3>
+        <h3 class="col-md-12" style="margin-left:5px">All Households</h3>
       </div>
     </div>
 
@@ -97,30 +124,33 @@
       <div class="col-md-2 plot">
   <!--          <label for="plot-2" class="label">aveIncome.csv</label>-->
         <svg id="plot-2" width="190" height="480"></svg>
-        <h4>——Less than 9th grade——</h4>
+        <h3>Less than 9th grade</h3>
       </div>
       <div class="col-md-2 plot">
         <svg id="plot-3" width="190" height="480"></svg>
-        <h5>——9th to 12th grade——</h5>
-        <h6>no diploma</h6>
+        <h3>9th to 12th grade<br/>
+          no dimploma
+        </h3>
       </div>
       <div class="col-md-2 plot">
         <svg id="plot-4" width="190" height="480"></svg>
-        <h5>——High School grad——</h5>
+        <h3>High School grad</h3>
       </div>
       <div class="col-md-2 plot">
         <svg id="plot-5" width="190" height="480"></svg>
-        <h5>———Some college———</h5>
-        <h6>no degree</h6>
+        <h3>Some college<br/>
+          no degree
+        </h3>
       </div>
       <div class="col-md-2 plot">
         <svg id="plot-6" width="190" height="480"></svg>
-        <h5>——Associate Degree——</h5>
+        <h3>Associate Degree</h3>
       </div>
       <div class="col-md-2 plot">
         <svg id="plot-7" width="190" height="480"></svg>
-        <h5>——Bachelor's Degree——</h5>
-        <h6>or more</h6>
+        <h3>Bachelor's Degree<br/>
+          or more
+        </h3>
       </div>
 
     </div>
@@ -131,12 +161,20 @@
 <div id="pie-container">
   <div class="container">
     <div class="row">
-        <h1 > Education Attainment in the United States Over Time</h1>
-        <h2>This graph shows the percent of the population over 25 that achieved each education level for the given year. It shows every 10 years, from 1947 to 2017"</h2>
-      <h1 class="col-md-12">Year:</h1>
+      <h2 class="col-md-12">Education Attainment in the United States Over Time</h2>
+      <div class="col-md-12" style="text-align: center;">
+        <p style="display: inline-block;">
+          This graph shows the percent of the population over 25 that achieved
+          each education level for the given year. It shows every 10 years,
+          from 1947 to 2017.
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <h3 class="col-md-12">Year:</h1>
       <div class="col-md-12 slidecontainer">
         <input type="range" min="1947" max="2017" value="1947" step="10" class="slider" id="myRange">
-        <p><span id="demo"></span></p>
+        <h3 class="col-md-12"><span id="demo"></span></h3>
       </div>
       <div id="pie-plot-container" class="col-md-12">
         <svg id="pie-plot"></svg>

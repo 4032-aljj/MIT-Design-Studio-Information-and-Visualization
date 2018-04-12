@@ -1,6 +1,6 @@
 #map-container {
   width: 100vw;
-  padding: 50px;
+  padding-top: 50px;
 }
 
 #map-container .plot {
@@ -9,10 +9,10 @@
   margin: auto;
 }
 
-#map-container h2 {
+#map-container h3 {
   margin: 25px 0;
   text-align: center;
-  font-size: 150%;
+  font-size: 120%;
 }
 
 #map-container .legend {

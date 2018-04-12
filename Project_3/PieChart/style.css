@@ -215,9 +215,12 @@ path.slice {
     cursor: pointer;
 }
 
-#pie-container p {
-    margin-left: auto;
-    margin-right: auto;
-    text-align: center;
-    font-size: 20px;
+#pie-container h3 {
+  margin: 10px 0;
+  text-align: center;
+  font-size: 120%;
+}
+
+#pie-container {
+  padding: 50px 0;
 }
