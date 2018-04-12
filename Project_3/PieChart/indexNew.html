@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+
+<body>
+<form>
+<!--
+<fieldset >
+    <label for="rangeVal">Year:</label>
+    <br>
+    <body onload="document.getElementById('rangeValLabel').innerHTML = 1947;"></body>
+    <input type ="range" max="2017" min="1947"
+        oninput="document.getElementById('rangeValLabel').innerHTML = this.value;"
+        step="10" name="rangeVal" id="rangeVal" value="1947"/>
+    <br><em id="rangeValLabel" style="font-style: normal;"></em>
+</fieldset>
+-->
+    
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<body>
+<h1>Year:</h1>
+<div class="slidecontainer">
+  <input type="range" min="1947" max="2017" value="1947" step="10" class="slider" id="myRange">
+  <h1><span id="demo"></span></h1>
+</div>
+
+<script>
+var slider = document.getElementById("myRange");
+var output = document.getElementById("demo");
+output.innerHTML = slider.value;
+
+slider.oninput = function() {
+  output.innerHTML = this.value;
+}
+</script>
+</body>
+<!--
+    
+<label><input type="radio" name="dataset" id="dataset" value="1947" checked> 1947</label>
+<label><input type="radio" name="dataset" id="dataset" value="1957"> 1957</label>
+<label><input type="radio" name="dataset" id="dataset" value="2017"> 2017</label>
+-->
+</form>
+<script src="https://d3js.org/d3-queue.v3.min.js"></script>
+<script src="http://d3js.org/d3.v3.min.js"></script>
+<script src="PieChartNew.js"></script>
+<link href="style.css" rel="stylesheet"/>
