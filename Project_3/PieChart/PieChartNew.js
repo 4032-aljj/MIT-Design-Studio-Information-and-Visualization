@@ -35,7 +35,7 @@ var legendRectSize = (radius * 0.05);
 var legendSpacing = radius * 0.02;
 
 
-// var div = d3.select("#pie-plot-container").append("div").attr("class", "toolTip");
+ var div = d3.select("#pie-plot-container").append("div").attr("class", "toolTip");
 
 svgPie.attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
 
@@ -241,33 +241,33 @@ function change(data) {
       .attr("d", arc)
       .style("fill", function(d) { return color(d.data.label); });
 
-  slice
-      .transition().duration(500)
+    slice.transition()
+      .duration(5000)
       .attrTween("d", function(d) {
-          this._current = this._current || d;
           var interpolate = d3.interpolate(this._current, d);
-          this._current = interpolate(0);
+          var _this = this;
           return function(t) {
-              return arc(interpolate(t));
-          };
-      })
-  // slice
-  //     .on("mousemove", function(d){
-  //         div.style("left", d3.event.pageX+10+"px");
-  //         div.style("top", d3.event.pageY-25+"px");
-  //         div.style("display", "inline-block");
-  //         div.html((d.data.label)+"<br>"+(d.data.percent)+"%");
-  //     });
-  // slice
-  //     .on("mouseout", function(d){
-  //         div.style("display", "none");
-  //     });
+              _this._current = interpolate(t);
+              return arc(_this._current);
+            };
+        });
+   slice
+       .on("mousemove", function(d){
+           div.style("left", d3.event.clientX-120+"px");
+           div.style("top", d3.event.clientY-70+"px");
+           div.style("display", "inline-block");
+           div.html((d.data.label)+"<br>"+(d.data.percent)+"%");
+       });
+   slice
+       .on("mouseout", function(d){
+           div.style("display", "none");
+       });
 
 	/* ------- TEXT LABELS -------*/
   var text = slice.append("text")
       .attr("dy", ".35em")
       .text(function(d) {
-        	return (d.data.label+": "+d.data.value+"%");
+        	return (d.data.label);
       });
 
   function midAngle(d){
@@ -275,7 +275,7 @@ function change(data) {
   }
 
 	text
-      .transition().duration(500)
+      .transition().duration(5000)
       .attrTween("transform", function(d) {
 				  this._current = this._current || d;
 				  var interpolate = d3.interpolate(this._current, d);
@@ -308,7 +308,7 @@ function change(data) {
 
 	polyline.enter()
 			.append("polyline")
-			.transition().duration(500)
+			.transition().duration(5000)
 		    .attrTween("points", function(d){
 		        this._current = this._current || d;
 		        var interpolate = d3.interpolate(this._current, d);
