@@ -165,7 +165,7 @@ d3.sankey = function() {
     initializeNodeDepth();
     resolveCollisions();
     for (var alpha = 1; iterations > 0; --iterations) {
-      relaxRightToLeft(alpha *= .99);
+      relaxRightToLeft(alpha *= 0);//changed from 0.99
       resolveCollisions();
       relaxLeftToRight(alpha);
       resolveCollisions();
@@ -252,7 +252,7 @@ d3.sankey = function() {
     }
 
     function ascendingDepth(a, b) {
-      return a.y - b.y;
+      return b.y - a.y;
     }
   }
 

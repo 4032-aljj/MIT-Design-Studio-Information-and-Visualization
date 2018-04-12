@@ -1,27 +1,20 @@
-/* body {
-  padding: 50px;
-  font-family: "HelveticaNeueLT Std","Helvetica LT Std Light", "Helvetica", "Arial", "sans-serif";
-  background-color: rgb(31,31,43);
-  color: #FFFFFF;
-} */
-
 #map-container {
   background-color: rgb(31,31,43);
   color: #FFFFFF;
   padding: 50px;
 }
 
+#map-container .plot {
+  width: 500px;
+  height: 360px;
+  margin: auto;
+}
+
 #map-container h2 {
   margin-bottom: 50px;
   margin-top: 50px;
-}
-
-#map-container #plot-income {
-  height: 680px;
-}
-
-#map-container .plot-ed {
-  height: 380px;
+  text-align: center;
+  font-size: 150%;
 }
 
 #map-container .legend-axis .domain {
@@ -35,4 +28,32 @@
 #map-container .legend-axis .tick text {
   stroke: none;
   fill: #FFFFFF;
+}
+
+#map-container .legend {
+  width: 320px;
+  margin: auto;
+}
+
+#map-container .slider-container {
+  width: 420px;
+  margin: auto;
+}
+
+#map-container .slider {
+  margin: auto;
+  margin-top: 40px;
+  width: 420px;
+}
+
+#map-container .slider-labels {
+  vertical-align: top;
+  width: 540px;
+  height: 200px;
+  margin-left: -120px;
+}
+
+#map-container .slider-labels > text {
+  fill: #999;
+  text-anchor: end;
 }

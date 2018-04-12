@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Map Charts</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link href="MapChart/nouislider.min.css" rel="stylesheet"/>
+  <link href="MapChart/style.css" rel="stylesheet"/>
+</head>
+<body>
+  <div id="map-container">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <h2>Median Household Income by State</h2>
+          <div id='plot-income' class="plot"></div>
+          <div id='legend-income' class="legend"></div>
+          <div id="slider-income" class="slider"></div>
+        </div>
+        <!-- /.col-md-6 -->
+        <div class="col-md-6">
+          <h2>Educational Attainment by State</h2>
+          <div id='plot-education' class="plot"></div>
+          <div id='legend-education' class="legend"></div>
+          <div id="slider-education-container" class="slider-container">
+            <div id="slider-education" class="slider"></div>
+            <svg id="slider-education-labels" class="slider-labels">
+              <text x='150' y='20' transform='rotate(-45, 150, 20)'>Before High School</text>
+              <text x='210' y='20' transform='rotate(-45, 210, 20)'>Some High School</text>
+              <text x='270' y='20' transform='rotate(-45, 270, 20)'>High School Diploma</text>
+              <text x='330' y='20' transform='rotate(-45, 330, 20)'>Some College</text>
+              <text x='390' y='20' transform='rotate(-45, 390, 20)'>Associate's</text>
+              <text x='450' y='20' transform='rotate(-45, 450, 20)'>Bachelor's</text>
+              <text x='510' y='20' transform='rotate(-45, 510, 20)'>Advanced Degrees</text>
+            </svg>
+          </div>
+        </div>
+        <!-- /.col-md-6 -->
+      </div>
+      <!-- /.row -->
+    </div>
+    <!-- /.container -->
+  </div>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://d3js.org/d3.v4.min.js"></script>
+  <script src="https://d3js.org/topojson.v2.min.js"></script>
+  <script src="MapChart/nouislider.min.js"></script>
+  <script src="MapChart/wNumb.js"></script>
+  <script src="MapChart/income_interactive.js"></script>
+  <script src="MapChart/education_interactive.js"></script>
+</body>
+</html>
