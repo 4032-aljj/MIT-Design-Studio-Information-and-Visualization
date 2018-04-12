@@ -18,12 +18,12 @@ document.getElementById("#women").addEventListener("click", function( event ){
 },false);
 */
 document.addEventListener("DOMContentLoaded", function(event) {
-    console.log("DOM fully loaded and parsed");
+    // console.log("DOM fully loaded and parsed");
     showElement("sankey1");
     hideElement("sankey2");
     hideElement("sankey3");
     document.getElementById("all").className = "active";
-    
+
 document.getElementById("men").addEventListener("click", function( event ){
     showElement("sankey2");
     hideElement("sankey1");
@@ -59,7 +59,7 @@ function hideElement(id) {
 function showElement(id){
     var x = document.getElementById(id);
     x.style.display = "block";
-    
+
 }
 
 
@@ -142,7 +142,7 @@ svg.selectAll(".link")
       .attr("height", function(d) { return d.dy; })
       .attr("width", sankey.nodeWidth())
       .style("fill", function(d) {
-          console.log(d);
+          // console.log(d);
 		  return d.color = d.color })
       .style("stroke", function(d) {
 		  return "white"; })
@@ -159,18 +159,18 @@ svg.selectAll(".link")
       .attr("text-anchor", "end")
       .attr("transform", null)
       .text(function(d) { return d.name; })
-    .filter(function(d) { 
-      
+    .filter(function(d) {
+
       if (d.name.startsWith("$")){
-        return false;   
+        return false;
       }
       else{
           return true;
-          
-          //d.x < width ; 
+
+          //d.x < width ;
       }
-                        
-                        
+
+
                         })
       .attr("x", 6 + sankey.nodeWidth())
       .attr("text-anchor", "start");
@@ -254,7 +254,7 @@ svg2.selectAll(".link")
       .attr("height", function(d) { return d.dy; })
       .attr("width", sankey2.nodeWidth())
       .style("fill", function(d) {
-          console.log(d);
+          // console.log(d);
 		  return d.color = d.color })
       .style("stroke", function(d) {
 		  return "white"; })
@@ -270,18 +270,18 @@ svg2.selectAll(".link")
       .attr("text-anchor", "end")
       .attr("transform", null)
       .text(function(d) { return d.name; })
-    .filter(function(d) { 
-      
+    .filter(function(d) {
+
       if (d.name.startsWith("$")){
-        return false;   
+        return false;
       }
       else{
           return true;
-          
-          //d.x < width ; 
+
+          //d.x < width ;
       }
-                        
-                        
+
+
                         })
       .attr("x", 6 + sankey.nodeWidth())
       .attr("text-anchor", "start");
@@ -365,7 +365,7 @@ svg3.selectAll(".link")
       .attr("height", function(d) { return d.dy; })
       .attr("width", sankey2.nodeWidth())
       .style("fill", function(d) {
-          console.log(d);
+          // console.log(d);
 		  return d.color = d.color })
       .style("stroke", function(d) {
 		  return "white"; })
@@ -381,18 +381,18 @@ svg3.selectAll(".link")
       .attr("text-anchor", "end")
       .attr("transform", null)
       .text(function(d) { return d.name; })
-    .filter(function(d) { 
-      
+    .filter(function(d) {
+
       if (d.name.startsWith("$")){
-        return false;   
+        return false;
       }
       else{
           return true;
-          
-          //d.x < width ; 
+
+          //d.x < width ;
       }
-                        
-                        
+
+
                         })
       .attr("x", 6 + sankey.nodeWidth())
       .attr("text-anchor", "start");
@@ -411,4 +411,3 @@ svg3.selectAll(".link")
     link3.attr("d", path);
   }
 });
-
