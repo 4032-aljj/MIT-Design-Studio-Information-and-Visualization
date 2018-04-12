@@ -202,6 +202,7 @@ d3.selectAll("input")
 
 function selectDataset() {
 	var value = this.value;
+	console.log(value)
 	if (value == "1947") {
 		change(dataset1947);
 	}
@@ -242,10 +243,9 @@ function change(data) {
   slice
       .transition().duration(2000)
       .attrTween("d", function(d) {
-          // this._current = this._current || d;
+          this._current = this._current || d;
           var interpolate = d3.interpolate(this._current, d);
-          // this._current = interpolate(0);
-					this._current = d;
+          this._current = interpolate(0);
           return function(t) {
               return arc(interpolate(t));
           };
@@ -262,8 +262,8 @@ function change(data) {
           div.style("display", "none");
       });
 
-  // slice.exit()
-  //     .remove();
+  slice.exit()
+      .remove();
 
 	/* ------- TEXT LABELS -------*/
   var text = slice.append("text")
@@ -279,10 +279,9 @@ function change(data) {
 	text
       .transition().duration(2000)
       .attrTween("transform", function(d) {
-				  // this._current = this._current || d;
+				  this._current = this._current || d;
 				  var interpolate = d3.interpolate(this._current, d);
-				  // this._current = interpolate(0);
-				  this._current = d;
+				  this._current = interpolate(0);
           return function(t) {
               var d2 = interpolate(t);
               var pos = outerArc.centroid(d2);
@@ -314,22 +313,19 @@ function change(data) {
 
 	polyline.enter()
 			.append("polyline")
+			.transition().duration(2000)
+		    .attrTween("points", function(d){
+		        this._current = this._current || d;
+		        var interpolate = d3.interpolate(this._current, d);
+						this._current = interpolate(0);
+		        return function(t) {
+		            var d2 = interpolate(t);
+		            var pos = outerArc.centroid(d2);
+		            pos[0] = radius * 0.95 * (midAngle(d2) < Math.PI ? 1 : -1);
+		            return [arc.centroid(d2), outerArc.centroid(d2), pos];
+		        };
+		    });
 
-	polyline.transition().duration(2000)
-	    .attrTween("points", function(d){
-				console.log('poly')
-	        this._current = this._current || d;
-	        var interpolate = d3.interpolate(this._current, d);
-					// this._current = interpolate(0);
-					this._current = d;
-	        return function(t) {
-	            var d2 = interpolate(t);
-	            var pos = outerArc.centroid(d2);
-	            pos[0] = radius * 0.95 * (midAngle(d2) < Math.PI ? 1 : -1);
-	            return [arc.centroid(d2), outerArc.centroid(d2), pos];
-	        };
-	    });
-
-  // polyline.exit()
-  //     .remove();
+  polyline.exit()
+      .remove();
 };
