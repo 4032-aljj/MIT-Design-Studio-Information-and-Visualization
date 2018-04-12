@@ -4,11 +4,23 @@ body {
 #Title{
     align-content: center;
     font-size: 2em;
-    margin:30px
+    margin:50px;
 }
 #sankey-container {
   background-color: #FFF;
+  margin: 30px;
+  width: 100vw;
+  align-content: center;
+  align-items: center;
+    
+}
 
+p{
+    text-align: left;
+    padding:30px;
+    margin:30px;
+    margin-left:0;
+    font-size:1.2em;
 }
 
 
