@@ -3,10 +3,11 @@
 <title>Income and Education</title>
 <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<link href="MapChart/nouislider.min.css" rel="stylesheet"/>
+<link href="style.css" rel="stylesheet">
 <link href="SankeyChart/style.css" rel="stylesheet">
 <link href="BarChart/style.css" rel="stylesheet">
 <link href="PieChart/style.css" rel="stylesheet">
-<link href="style.css" rel="stylesheet">
 <link href="MapChart/style.css" rel="stylesheet">
 
 <body>
@@ -19,46 +20,44 @@
     <div id ="controlPanel">
     <button id ="women" type="button">Female Workers 25+</button>
     <button id = "all" type="button">All Workers 25+</button>
-    <button id ="men" type="button">Male Workers 25+</button> 
+    <button id ="men" type="button">Male Workers 25+</button>
 </div>
   </div>
 
-    <!--Maps-->
-    <div id="map-container">
+<!--Maps-->
+<div id="map-container">
+  <div class="container">
     <div class="row">
-      <h1 class="col-md-12">Median Household Income by State</h1>
-      <div id='plot-income' class="col-md-12"></div>
+      <div class="col-md-6">
+        <h2>Median Household Income by State</h2>
+        <div id='legend-income' class="legend"></div>
+        <div id='plot-income' class="plot"></div>
+        <div id="slider-income" class="slider"></div>
+      </div>
+      <!-- /.col-md-6 -->
+      <div class="col-md-6">
+        <h2>Educational Attainment by State</h2>
+        <div id='legend-education' class="legend"></div>
+        <div id='plot-education' class="plot"></div>
+        <div id="slider-education-container" class="slider-container">
+          <div id="slider-education" class="slider"></div>
+          <svg id="slider-education-labels" class="slider-labels">
+            <text x='150' y='20' transform='rotate(-45, 150, 20)'>Before High School</text>
+            <text x='210' y='20' transform='rotate(-45, 210, 20)'>Some High School</text>
+            <text x='270' y='20' transform='rotate(-45, 270, 20)'>High School Diploma</text>
+            <text x='330' y='20' transform='rotate(-45, 330, 20)'>Some College</text>
+            <text x='390' y='20' transform='rotate(-45, 390, 20)'>Associate's</text>
+            <text x='450' y='20' transform='rotate(-45, 450, 20)'>Bachelor's</text>
+            <text x='510' y='20' transform='rotate(-45, 510, 20)'>Advanced Degrees</text>
+          </svg>
+        </div>
+      </div>
+      <!-- /.col-md-6 -->
     </div>
-    <!-- /row -->
-    <div class="row">
-      <h1 class="col-md-12">Educational Attainment by State</h1>
-      <div class="col-md-6">
-        <h2>Before High School</h2>
-        <div id='plot-before-hs' class="plot-ed"></div>
-      </div>
-      <div class="col-md-6">
-        <h2>Some High School</h2>
-        <div id='plot-hs-some' class="plot-ed"></div>
-      </div>
-      <div class="col-md-6">
-        <h2>High School Diploma</h2>
-        <div id='plot-hs-diploma' class="plot-ed"></div>
-      </div>
-      <div class="col-md-6">
-        <h2>Some College</h2>
-        <div id='plot-college-some' class="plot-ed"></div>
-      </div>
-      <div class="col-md-6">
-        <h2>Bachelor's</h2>
-        <div id='plot-bachelor' class="plot-ed"></div>
-      </div>
-      <div class="col-md-6">
-        <h2>Advanced Degrees</h2>
-        <div id='plot-advanced' class="plot-ed"></div>
-      </div>
-    </div>
-    <!-- /row -->
+    <!-- /.row -->
   </div>
+  <!-- /.container -->
+</div>
 
 <!--Bar Charts-->
 <div id="bar-container" class="container">
@@ -131,8 +130,11 @@
 <script src="https://d3js.org/d3.v4.min.js"></script>
 <script src="SankeyChart/sankey.js"></script>
 <script src ="SankeyChart/script.js"></script>
-<script src ="MapChart/education.js"></script>
-<script src ="MapChart/income.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3-legend/2.25.6/d3-legend.min.js"></script>
+<script src="MapChart/nouislider.min.js"></script>
+<script src="MapChart/wNumb.js"></script>
+<script src="MapChart/income_interactive.js"></script>
+<script src="MapChart/education_interactive.js"></script>
 <script src ="BarChart/script_1.js"></script>
 <script src="PieChart/pie2.js"></script>
 
