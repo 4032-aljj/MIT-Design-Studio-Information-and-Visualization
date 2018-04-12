@@ -2,29 +2,29 @@
 
 {
 "nodes":[
-{"node":0,"name":"Some Highschool", "color":"#00A388"},
-{"node":1,"name":"Highschool Diploma","color":"#79BD8F"},
+{"node":0,"name":"Some Highschool", "color":"#FF6138"},
+{"node":1,"name":"Highschool Diploma","color":"#FFFF9D"},
 {"node":2,"name":"Some College","color":"#BEEB9F"},
-{"node":3,"name":"Bachelors Degree","color":"#FFFF9D"},
-{"node":4,"name":"Advanced Degree","color":"#FF6138"},
-{"node":5,"name":"$24,284","color":"#00A388"},
-{"node":6,"name":"$31,772","color":"#79BD8F"},
+{"node":3,"name":"Bachelors Degree","color":"#79BD8F"},
+{"node":4,"name":"Advanced Degree","color":"#00A388"},
+{"node":5,"name":"$24,284","color":"#FF6138"},
+{"node":6,"name":"$31,772","color":"#FFFF9D"},
 {"node":7,"name":"$36,244","color":"#BEEB9F"},
-{"node":8,"name":"$52,000","color":"#FFFF9D"},
-{"node":9,"name":"$66,820","color":"#FF6138"}
+{"node":8,"name":"$52,000","color":"#79BD8F"},
+{"node":9,"name":"$66,820","color":"#00A388"}
     
 
     
     
 ],
 "links":[
-{"source":0,"target":5,"value":2289,"color":"#00A388"},
+{"source":0,"target":5,"value":2289,"color":"#FF6138"},
 {"source":0,"target":1,"value":44357,"color":"#D3D3D3"},
-{"source":1,"target":6,"value":10441,"color":"#79BD8F"},
+{"source":1,"target":6,"value":10441,"color":"#FFFF9D"},
 {"source":1,"target":2,"value":33916,"color":"#D3D3D3"},
 {"source":2,"target":7,"value":12900,"color":"#BEEB9F"},
 {"source":2,"target":3,"value":21017,"color":"#D3D3D3"},
 {"source":3,"target":4,"value":8129,"color":"#D3D3D3"},
-{"source":3,"target":8,"value":12888,"color":"#FFFF9D"},
-{"source":4,"target":9,"value":8129,"color":"#FF6138"}
+{"source":3,"target":8,"value":12888,"color":"#79BD8F"},
+{"source":4,"target":9,"value":8129,"color":"#00A388"}
 ]}
