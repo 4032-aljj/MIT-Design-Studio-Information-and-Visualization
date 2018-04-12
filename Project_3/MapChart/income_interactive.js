@@ -9,6 +9,7 @@ let incomeLegendH = 20
 // Dictionary of {id: value}
 let incomeByID = {}
 let incomeDomain = [Infinity, -Infinity]
+let incomeNumScales = 6
 
 // Append svgs to divs
 let incomePlot = d3.select('#plot-income')
@@ -91,18 +92,20 @@ function incomeDataLoaded(err, data, map){
 
 function colorIncomeMap() {
   let domainRange = incomeSlider.noUiSlider.get()
+  let edRange = edSlider.noUiSlider.get()
 
   // Create a new color scale
   let color = d3.scaleLinear()
-    .domain([domainRange[0], domainRange[1]])
-    .range(['#FFF', $('#slider-education .noUi-connect').css('background-color')])
+    .domain([0, incomeNumScales-1])
+    .range([edColors[edRange[1]-1][0], edColors[edRange[1]-1][1]])
+  let unit = (domainRange[1] - domainRange[0])/incomeNumScales
 
   // Update the fill function of map
   incomeMap.style('fill', function(d) {
     if (domainRange[0] > incomeByID[d.id] || incomeByID[d.id] > domainRange[1]) {
       return '#AAA'
     }
-    return color(incomeByID[d.id])
+    return color(Math.floor((incomeByID[d.id]-domainRange[0])/unit))
   })
 
   // Update the legend

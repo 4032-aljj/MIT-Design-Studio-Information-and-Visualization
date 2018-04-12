@@ -24,10 +24,19 @@ let edDomains = []
 let edDataLabels = ['before_hs','hs_some','hs_diploma','college_some','associate','bachelor','advanced']
 
 // List of colors for education levels
-let edColors = ['#FF6138', '#FFFF9D', '#BEEB9F', '#79BD8F', '#00A388', '#00A388', '#00A388']
+let edColors = [
+  ['#FFC538','#FF2238'],
+  ['#FFFF9D','#5C5C39'],
+  ['#CEFFAD','#38452F'],
+  ['#A4FFC1','#294030'],
+  ['#00E0BB','#004A3E'],
+  ['#00E0BB','#004A3E'],
+  ['#00E0BB','#004A3E'],
+]
 
 let edInitIndexLow = 0
 let edInitIndexHigh = 6
+let edNumScales = 6
 
 // Append svgs to divs
 let edPlot = d3.select('#plot-education')
@@ -116,21 +125,23 @@ function colorEdMap(indexLow, indexHigh) {
 
   // Create a new color scale
   let color = d3.scaleLinear()
-    .domain([domainLow, domainHigh])
-    .range(['#FFF', edColors[indexHigh-1]])
+    .domain([0, edNumScales-1])
+    .range([edColors[indexHigh-1][0], edColors[indexHigh-1][1]])
+  let unit = (domainHigh - domainLow)/edNumScales
 
   // Update the fill function of map
   edMap.style('fill', function(d) {
+    if (indexLow == 0 && indexHigh == 7) { return color(edNumScales) }
     let sum = 0
     for (let i = indexLow; i < indexHigh; i++) {
       sum += edValues[i][d.id]
     }
-    return color(sum)
+    return color(Math.floor((sum-domainLow)/unit))
   })
 
   // Update the slider color
-  $('#slider-education .noUi-connect').css('background-color', edColors[indexHigh-1])
-  $('#slider-income .noUi-connect').css('background-color', edColors[indexHigh-1])
+  $('#slider-education .noUi-connect').css('background-color', color(edNumScales/2))
+  $('#slider-income .noUi-connect').css('background-color', color(edNumScales/2))
 
   // Update the legend
   updateEdLegend(domainLow, domainHigh, color(domainLow), color(domainHigh))
