@@ -60,3 +60,12 @@
   text-anchor: end;
   font-size: 15px;
 }
+
+#map-container #income-tooltip, #map-container #ed-tooltip {
+  position: absolute;
+  background-color: #fff;
+  color: #000;
+  padding: 10px;
+  border: 1px solid;
+  display: none;
+}

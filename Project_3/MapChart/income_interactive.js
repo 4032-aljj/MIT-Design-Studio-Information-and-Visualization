@@ -10,6 +10,7 @@ let incomeLegendH = 20
 let incomeByID = {}
 let incomeDomain = [Infinity, -Infinity]
 let incomeNumScales = 6
+let incomeStateNames = {}
 
 // Append svgs to divs
 let incomePlot = d3.select('#plot-income')
@@ -44,6 +45,7 @@ function incomeDataLoaded(err, data, map){
     incomeByID[d.id] = d.income
     incomeDomain[0] = Math.min(incomeDomain[0], d.income)
     incomeDomain[1] = Math.max(incomeDomain[1], d.income)
+    incomeStateNames[d.id] = d.state
   })
 
   // Initialize the slider
@@ -84,6 +86,18 @@ function incomeDataLoaded(err, data, map){
     .attr('d', incomeMapPath)
     .style('stroke', '#AAAAAA')
     .attr('transform', `scale(${incomeMapScale})`)
+    .on("mousemove", function(d) {
+      $(this).attr('fill-opacity', '0.6')
+      d3.select('#income-tooltip')
+        .text(incomeStateNames[d.id])
+        .style('top', `${d3.event.layerY+15}px`)
+        .style('left', `${d3.event.layerX+15}px`)
+      $("#income-tooltip").show()
+    })
+    .on("mouseout", function() {
+      $(this).attr('fill-opacity', '1')
+      $("#income-tooltip").hide()
+    })
 
   // Append legend to plot
   colorIncomeMap()
@@ -135,7 +149,7 @@ function updateIncomeLegend(domainLow, domainHigh, color, unit) {
 function parseIncomeData(d){
   return {
     id : d["Target Geo Id2"],
-    state : d["Geography"],
+    state : d["Geographical Area"],
     income: +d["Dollar"],
   }
 }

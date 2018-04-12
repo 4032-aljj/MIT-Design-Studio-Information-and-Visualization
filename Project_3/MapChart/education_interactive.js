@@ -37,6 +37,7 @@ let edColors = [
 let edInitIndexLow = 0
 let edInitIndexHigh = 6
 let edNumScales = 6
+let edStateNames = {}
 
 // Append svgs to divs
 let edPlot = d3.select('#plot-education')
@@ -101,6 +102,7 @@ function edDataLoaded(err, data, map){
       edDomains[i][0] = Math.min(edDomains[i][0], d[edDataLabels[i]])
       edDomains[i][1] = Math.max(edDomains[i][1], d[edDataLabels[i]])
     }
+    edStateNames[d.id] = d.state
   })
 
   // Append map charts to plots
@@ -112,6 +114,18 @@ function edDataLoaded(err, data, map){
     .attr('d', edMapPath)
     .style('stroke', '#AAAAAA')
     .attr('transform', `scale(${edMapScale})`)
+    .on("mousemove", function(d) {
+      $(this).attr('fill-opacity', '0.8')
+      d3.select('#ed-tooltip')
+        .text(edStateNames[d.id])
+        .style('top', `${d3.event.layerY+15}px`)
+        .style('left', `${d3.event.layerX+15}px`)
+      $("#ed-tooltip").show()
+    })
+    .on("mouseout", function() {
+      $(this).attr('fill-opacity', '1')
+      $("#ed-tooltip").hide()
+    })
 
   // Initialize the coloring and legend
   colorEdMap(edInitIndexLow, edInitIndexHigh)
