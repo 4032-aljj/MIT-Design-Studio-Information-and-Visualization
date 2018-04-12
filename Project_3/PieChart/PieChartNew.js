@@ -145,7 +145,7 @@ d3.csv("./data/Additional/pie_1987.csv",
             dataset1987 = data;
 });
 
-d3.csv("../data/Additional/pie_1997.csv",
+d3.csv("./data/Additional/pie_1997.csv",
         function(error, data) {
             if (error) {
                 throw error;
