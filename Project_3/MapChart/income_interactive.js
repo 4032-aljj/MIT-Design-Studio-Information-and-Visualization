@@ -63,7 +63,7 @@ function incomeDataLoaded(err, data, map){
     pips: {
   		mode: 'values',
   		values: [25000, 40000, 55000, 70000],
-  		density: 5,
+  		density: 200000/(incomeDomain[1]-incomeDomain[0]),
       format: wNumb({
         prefix: '$'
       })
@@ -86,83 +86,50 @@ function incomeDataLoaded(err, data, map){
     .attr('transform', `scale(${incomeMapScale})`)
 
   // Append legend to plot
-  appendIncomeLegend()
   colorIncomeMap()
 }
 
 function colorIncomeMap() {
   let domainRange = incomeSlider.noUiSlider.get()
   let edRange = edSlider.noUiSlider.get()
+  let domainLow = parseInt(domainRange[0])
+  let domainHigh = parseInt(domainRange[1])
 
   // Create a new color scale
   let color = d3.scaleLinear()
     .domain([0, incomeNumScales-1])
     .range([edColors[edRange[1]-1][0], edColors[edRange[1]-1][1]])
-  let unit = (domainRange[1] - domainRange[0])/incomeNumScales
+  let unit = (domainHigh - domainLow)/incomeNumScales
 
   // Update the fill function of map
   incomeMap.style('fill', function(d) {
-    if (domainRange[0] > incomeByID[d.id] || incomeByID[d.id] > domainRange[1]) {
+    if (domainLow > incomeByID[d.id] || incomeByID[d.id] > domainHigh) {
       return '#AAA'
     }
-    return color(Math.floor((incomeByID[d.id]-domainRange[0])/unit))
+    return color(Math.floor((incomeByID[d.id]-domainLow)/unit))
   })
 
   // Update the legend
-  updateIncomeLegend(domainRange[0], domainRange[1], color(domainRange[0]), color(domainRange[1]))
+  updateIncomeLegend(domainLow, domainHigh, color, unit)
 }
 
-function updateIncomeLegend(domainLow, domainHigh, colorLow, colorHigh) {
-  // Update the gradient range
-  incomeLegend.select("#gradient-income-low").attr('stop-color', colorLow)
-  incomeLegend.select("#gradient-income-high").attr('stop-color', colorHigh)
-
-  // Create new scale and axis
-  let legendScale = d3.scaleLinear()
-    .domain([domainLow, domainHigh])
-    .range([0, incomeLegendW])
-
-  let legendAxis = d3.axisBottom()
-    .scale(legendScale)
-    .ticks(5)
-    .tickSizeOuter(0)
-    .tickFormat(function(d) { return `$${d}` })
-
-  // Update the axis
-  incomeLegendPlot.selectAll("g.legend-axis").remove()
+function updateIncomeLegend(domainLow, domainHigh, color, unit) {
   incomeLegendPlot.append('g')
-    .attr('class', 'legend-axis')
-    .attr('transform', `translate(20, ${incomeLegendH})`)
-    .call(legendAxis)
-}
+    .attr('class', 'legendLinear')
 
-function appendIncomeLegend() {
-  incomeLegend = incomeLegendPlot.append('defs')
-    .append('svg:linearGradient')
-    .attr('id', 'gradient-income')
-    .attr('x1', '0%')
-    .attr('y1', '100%')
-    .attr('x2', '100%')
-    .attr('y2', '100%')
-    .attr('spreadMethod', 'pad')
+  let legendLinear = d3.legendColor()
+    .cells(incomeNumScales)
+    .shapeWidth(incomeLegendW/incomeNumScales)
+    .orient('horizontal')
+    .scale(color)
+    .labels(function(d) {
+      let value = (domainLow + unit * (d.i + 1))/1000
+      if (unit > 1000) { return d.i == 0 ? `$${Math.round(value)}k` : `${Math.round(value)}k` }
+      return d.i == 0 ? `$${value.toFixed(1)}k` : `${value.toFixed(1)}k`
+    })
 
-  incomeLegend.append('stop')
-    .attr('id', 'gradient-income-low')
-    .attr('offset', '0%')
-    .attr('stop-color', '#FFF')
-    .attr('stop-opacity', 1)
-
-  incomeLegend.append('stop')
-    .attr('id', 'gradient-income-high')
-    .attr('offset', '100%')
-    .attr('stop-color', '#FFF')
-    .attr('stop-opacity', 1)
-
-  incomeLegendPlot.append('rect')
-    .attr('width', incomeLegendW)
-    .attr('height', incomeLegendH)
-    .style('fill', 'url(#gradient-income)')
-    .attr('transform', `translate(20, 0)`)
+  incomeLegendPlot.select('.legendLinear')
+    .call(legendLinear)
 }
 
 function parseIncomeData(d){

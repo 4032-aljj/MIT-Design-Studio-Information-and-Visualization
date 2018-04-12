@@ -76,6 +76,11 @@ noUiSlider.create(edSlider, {
 	direction: 'ltr',
 	orientation: 'horizontal',
 	behaviour: 'tap',
+  pips: {
+    mode: 'values',
+    values: [],
+    density: 100/7,
+  }
 })
 
 // Add event listener to the slider
@@ -109,7 +114,6 @@ function edDataLoaded(err, data, map){
     .attr('transform', `scale(${edMapScale})`)
 
   // Initialize the coloring and legend
-  appendEdLegend()
   colorEdMap(edInitIndexLow, edInitIndexHigh)
 }
 
@@ -144,63 +148,28 @@ function colorEdMap(indexLow, indexHigh) {
   $('#slider-income .noUi-connect').css('background-color', color(edNumScales/2))
 
   // Update the legend
-  updateEdLegend(domainLow, domainHigh, color(domainLow), color(domainHigh))
+  updateEdLegend(domainLow, domainHigh, color, unit)
 
   // Update the income map color
   colorIncomeMap()
 }
 
-function updateEdLegend(domainLow, domainHigh, colorLow, colorHigh) {
-  // Update the gradient range
-  edLegend.select("#gradient-ed-low").attr('stop-color', colorLow)
-  edLegend.select("#gradient-ed-high").attr('stop-color', colorHigh)
-
-  // Create new scale and axis
-  let legendScale = d3.scaleLinear()
-    .domain([domainLow, domainHigh])
-    .range([0, edLegendW])
-
-  let legendAxis = d3.axisBottom()
-    .scale(legendScale)
-    .ticks(5)
-    .tickSizeOuter(0)
-    .tickFormat(function(d) { return `${d}%` })
-
-  // Update the axis
-  edLegendPlot.selectAll("g.legend-axis").remove()
+function updateEdLegend(domainLow, domainHigh, color, unit) {
   edLegendPlot.append('g')
-    .attr('class', 'legend-axis')
-    .attr('transform', `translate(10, ${edLegendH})`)
-    .call(legendAxis)
-}
+    .attr('class', 'legendLinear')
 
-function appendEdLegend() {
-  edLegend = edLegendPlot.append('defs')
-    .append('svg:linearGradient')
-    .attr('id', 'gradient-ed')
-    .attr('x1', '0%')
-    .attr('y1', '100%')
-    .attr('x2', '100%')
-    .attr('y2', '100%')
-    .attr('spreadMethod', 'pad')
+  let legendLinear = d3.legendColor()
+    .cells(edNumScales)
+    .shapeWidth(edLegendW/edNumScales)
+    .orient('horizontal')
+    .scale(color)
+    .labels(function(d) {
+      let value = Math.round(domainLow + unit * (d.i + 1))
+      return d.i == 0 ? `${value}%` : value
+    })
 
-  edLegend.append('stop')
-    .attr('id', 'gradient-ed-low')
-    .attr('offset', '0%')
-    .attr('stop-color', '#FFF')
-    .attr('stop-opacity', 1)
-
-  edLegend.append('stop')
-    .attr('id', 'gradient-ed-high')
-    .attr('offset', '100%')
-    .attr('stop-color', '#FFF')
-    .attr('stop-opacity', 1)
-
-  edLegendPlot.append('rect')
-    .attr('width', edLegendW)
-    .attr('height', edLegendH)
-    .style('fill', 'url(#gradient-ed)')
-    .attr('transform', `translate(10, 0)`)
+  edLegendPlot.select('.legendLinear')
+    .call(legendLinear)
 }
 
 function parseEdData(d){

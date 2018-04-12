@@ -1,6 +1,4 @@
 #map-container {
-  background-color: rgb(31,31,43);
-  color: #FFFFFF;
   padding: 50px;
 }
 
@@ -17,23 +15,14 @@
   font-size: 150%;
 }
 
-#map-container .legend-axis .domain {
-  stroke: #FFFFFF;
-}
-
-#map-container .legend-axis .tick line {
-  stroke: #FFFFFF;
-}
-
-#map-container .legend-axis .tick text {
-  stroke: none;
-  fill: #FFFFFF;
-}
-
 #map-container .legend {
   width: 320px;
   margin: auto;
 }
+
+/* #map-container .legend text {
+  fill: #FFFFFF;
+} */
 
 #map-container .slider-container {
   width: 420px;
