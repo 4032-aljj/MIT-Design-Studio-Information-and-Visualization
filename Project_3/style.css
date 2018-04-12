@@ -18,6 +18,11 @@ header{
 
 }
 
+#sankey1 {
+  align-self: center;
+  
+}
+
 p{
     padding-top:20px;
     text-align: left;
@@ -35,4 +40,10 @@ p{
 
 h1{
     font-weight:bold;
+}
+
+#pie-container .row{
+    align-content: center;
+    align-items: center;
+    text-align: center;
 }
